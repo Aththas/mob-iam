@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from './Pages/Login-page/LoginPage';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<LoginPage/>}/>
+      </Routes>
+    </Router>
   );
 }
 

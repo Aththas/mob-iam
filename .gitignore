@@ -1,6 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+#img files
 /src/Images
+/src/Components/Login-Section/img
 
 # dependencies
 /node_modules

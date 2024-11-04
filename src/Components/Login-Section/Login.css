@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+.login-container{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-image: url('../../Images/iams.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+input,
+button {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+}
+a{
+    text-decoration: none;
+}
+
+.form-container{
+    width: 20vw;
+    position: relative;
+    background-color: hsla(0, 0%, 10%, 0.1);
+    border: 2px solid white;
+    margin: 1.5vh;
+    padding: 5vh 3vw;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.login__title {
+    color: white;
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.login__content,
+.login__box {
+    display: grid;
+}
+.login__box {
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    column-gap: 0.75rem;
+    border-bottom: 2px solid hsl(0, 0%, 100%);
+    margin: 2vh 0;
+}
+
+.login__icon,
+.login__eye {
+    font-size: 1.25rem;
+    color: hsl(0, 0%, 100%);
+}
+
+.login__input {
+    border: none;
+    width: 100%;
+    padding-block: 0.8rem;
+    background: none;
+    color: hsl(0, 0%, 100%);
+    position: relative;
+    z-index: 1;
+    outline: none;
+}
+
+
+.login__box-input {
+    position: relative;
+}
+  
+.login__label {
+    position: absolute;
+    color: hsl(0, 0%, 100%);
+    left: 0;
+    top: 13px;
+    font-weight: 500;
+    transition: top 0.3s, font-size 0.3s;
+}
+  
+  .login__eye {
+    position: absolute;
+    right: 0;
+    top: 18px;
+    z-index: 10;
+    cursor: pointer;
+  }
+  .login__box:nth-child(2) input {
+    padding-right: 1.8rem;
+  }
+  
+  .login__check,
+  .login__check-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .login__check {
+    margin-bottom: 1.5rem;
+    color: hsl(0, 0%, 100%);
+    margin-top: 1.5vh;
+  }
+  
+  
+.login__check-label,
+.login__forgot,
+.login__register {
+  font-size: 0.85rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.login__check-group {
+  column-gap: 0.5rem;
+}
+
+.login__check-input {
+  width: 16px;
+  height: 16px;
+}
+
+.login__forgot {
+  color: hsl(0, 0%, 100%);
+}
+
+.login__forgot:hover {
+  text-decoration: underline;
+}
+
+.login__button {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: hsl(217, 75%, 80%);
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  border-color: transparent;
+  color: hsl(0, 0%, 100%);
+}
+
+.login__button img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    pointer-events: none;
+    transition: .6s;
+    opacity: 0;
+}
+
+/* Move 3D geometric elements */
+.button__cone {
+    width: 18px;
+    transform: translate(-25px, -6px) rotate(55deg);
+    filter: blur(.5px);
+  }
+  
+  .button__torus {
+    width: 38px;
+    transform: translate(7px, -14px) rotate(80deg);
+  }
+  
+  .button__icosahedron {
+    width: 36px;
+    transform: translate(34px, -4px) rotate(-45deg);
+    filter: blur(.9px);
+  }
+  
+  .button__sphere {
+    width: 30px;
+    transform: translate(-5px, 15px) rotate(40deg);
+  }
+
+  /* View shadow gradient */
+.login__button:hover::after {
+    opacity: 1;
+  }
+  
+  /* Button scale */
+  .login__button:hover {
+    transform: scale(0.8);
+  }
+  
+  /* View 3D geometric elements */
+  .login__button:hover img {
+    opacity: 1;
+  }
+  
+  .login__button:hover .button__cone {
+    transform: translate(-38px, -10px) scale(1.2);
+  }
+  
+  .login__button:hover .button__torus {
+    transform: translate(7px, -32px) scale(1.1);
+  }
+  
+  .login__button:hover .button__icosahedron {
+    transform: translate(50px, -20px) scale(1.1);
+  }
+  
+  .login__button:hover .button__sphere {
+    transform: translate(-14px, 20px) scale(1.1);
+  }
+
+.login__register {
+  text-align: center;
+}
+
+.login__register a {
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+}
+
+.login__register a:hover {
+  text-decoration: underline;
+}
+
+/* Input focus move up label */
+.login__input:focus + .login__label {
+  top: -12px;
+  font-size: 0.813rem;
+}
+
+/* Input focus sticky top label */
+.login__input:not(:placeholder-shown).login__input:not(:focus) + .login__label {
+  top: -12px;
+  font-size: 0.813rem;
+}
