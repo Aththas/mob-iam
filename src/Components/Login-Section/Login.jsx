@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Login.css'
 import 'remixicon/fonts/remixicon.css';
 import cone from './img/cone.png'
@@ -7,6 +7,7 @@ import spehere from './img/sphere.png'
 import torus from './img/torus.png'
 
 const Login = () => {
+    const [visible, setVisible] = useState(false);
   return (
     <div className='login-container'>
         <form action="" class="form-container">
@@ -26,9 +27,9 @@ const Login = () => {
                   <i class="ri-lock-2-line login__icon"></i>
 
                   <div class="login__box-input">
-                     <input type="password" required class="login__input" id="login-pass" placeholder=" "/>
+                     <input type={visible ? "text" : "password"} required class="login__input" id="login-pass" placeholder=" "/>
                      <label for="login-pass" class="login__label">Password</label>
-                     <i class="ri-eye-off-line login__eye" id="login-eye"></i>
+                     <i class={`${visible ? "ri-eye-line":"ri-eye-off-line"} login__eye`} id="login-eye" onClick={()=>setVisible((cur) => !cur)}></i>
                   </div>
                </div>
             </div>
