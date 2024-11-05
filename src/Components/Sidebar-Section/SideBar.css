@@ -1,0 +1,8 @@
+.sibebar{
+    position: fixed;
+    top: 7.5vh;
+    left: 0;
+    height: 92.5vh;
+    width: 20vw;
+    background-color: #7AB2D3;
+}

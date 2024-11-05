@@ -143,6 +143,7 @@ a{
   margin-bottom: 2rem;
   border-color: transparent;
   color: hsl(0, 0%, 100%);
+  transition: .6s;
 }
 
 .login__button img {
@@ -185,6 +186,7 @@ a{
   /* Button scale */
   .login__button:hover {
     transform: scale(0.8);
+    background-color: transparent;
   }
   
   /* View 3D geometric elements */
