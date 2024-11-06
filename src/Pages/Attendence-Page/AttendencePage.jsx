@@ -2,18 +2,18 @@ import React from 'react'
 import '../Page-style/pagestyle.css'
 import HeadBar from '../../Components/Headbar-Section/HeadBar'
 import SideBar from '../../Components/Sidebar-Section/SideBar'
-import Dashboard from '../../Components/Dashboard-Section/Dashboard'
+import Attendence from '../../Components/Attendence-Section/Attendence'
 
-const DashboardPage = () => {
+const AttendencePage = () => {
   return (
     <div className='admin-container'>
         <HeadBar/>
         <div className="main-container">
             <SideBar/>
-            <Dashboard/>
+            <Attendence/>
         </div>
     </div>
   )
 }
 
-export default DashboardPage
+export default AttendencePage
