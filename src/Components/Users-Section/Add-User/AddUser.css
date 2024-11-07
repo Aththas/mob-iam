@@ -1,0 +1,155 @@
+/* Add these styles to your CSS file */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    z-index: 99;
+  }
+  
+  .popup-content {
+    position: relative;
+    left: 25vw;
+    width: 60%;
+    height: 80%;
+    background: #F4F5F7;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .popup-header{
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4f85a4;
+  }
+
+  .popup-header-left{
+    position: relative;
+    left: 3vh;
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .popup-header-left .intern-icon{
+    color: #F4F5F7;
+  }
+
+  .popup-header-left h2{
+    font-size: 0.9em;
+    font-family: 'Roboto', 'Arial', sans-serif; 
+    color: #F4F5F7;
+    padding-left: 2vh;
+  }
+
+  .popup-header-right{
+    position: relative;
+    right: 2vh;
+  }
+
+  .popup-header-right .close-btn{
+    color: #F4F5F7;
+    background-color: #ff0000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    border: none; 
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+   }
+
+   .popup-header-right .close-btn:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transform: translateY(3px);
+    }
+
+    form{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+  }
+
+  .input-group {
+      position: relative;
+      /* margin-bottom: 20px; */
+      flex: 0 0 48%;
+  }
+  
+  .input {
+    position: relative;
+    outline: none;
+    width: 100%;
+    height: 35px;
+    padding: 0.7vh 2vh;
+    background-color: #F4F5F7;
+    border: 1px solid #7AB2D3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    color: #333533;
+    font-family: 'Roboto', 'Arial', sans-serif; 
+    font-size: 0.9rem;
+  }
+  
+  .label {
+      position: absolute;
+      left: 15px;
+      top: -27px;
+      color: #7AB2D3;
+      background-color: #F4F5F7;
+      font-weight: 500;
+      font-size: 0.7rem;
+      padding: 0.2em;
+      pointer-events: none;
+      transform: translateY(15px);
+  }
+  
+  .input:focus, .input:valid {
+      outline: none;
+      /* border: 1.5px solid #fff; */
+  }
+
+.form-submit-btn, .form-close-btn{
+  position: relative;
+  width: 100%;
+  color: #F4F5F7;
+  border: none;
+  /* border-radius: 5px; */
+  padding: 0.71vh 2vh;
+  cursor: pointer;    
+  font-size: 0.8rem;
+
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.form-submit-btn{
+  background-color: #7AB2D3;
+}
+
+.form-close-btn{
+  background-color: #ff0000;
+}
+
+.form-close-btn:active, .form-submit-btn:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  transform: translateY(3px);
+}

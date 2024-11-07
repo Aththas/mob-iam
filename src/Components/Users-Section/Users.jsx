@@ -1,9 +1,41 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import './Users.css'
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading'
+import AddUser from './Add-User/AddUser';
 
 const Users = () => {
+    const [addForm, setAddForm] = useState(true);
+
+    const userDetails = [
+        {
+            name: 'Aththas',
+            role: 'Software Engineer',
+            department: 'Information Systems',
+            status: 'Intern'
+        },
+        {
+            name: 'Deelaka',
+            role: 'Security Engineer',
+            department: 'Information Systems',
+            status: 'L3'
+        },
+        {
+            name: 'Amar',
+            role: 'Systems Engineer',
+            department: 'Information Systems',
+            status: 'L5'
+        }
+    ];
+
+    const openAddForm = useCallback(() => {
+        setAddForm(true);
+    },[]);
+    
+    const closeAddForm = useCallback(() =>{
+        setAddForm(false);
+    },[]);
+
   return (
     <div className='main-user'>
         <MainHeading icon={faUserEdit} heading={"Users"}/>
@@ -26,10 +58,11 @@ const Users = () => {
                         <input className='search-input' type='text' placeholder='search...' id='search' name='search' />
                         <button className='search-btn'>Search</button>
                     </div>
-                    <button className='add-btn'>+</button>
+                    <button className='add-btn' onClick={openAddForm}>+</button>
+                    {addForm && <AddUser onClose={closeAddForm}/>}
                 </div>
                 <div className="user-table">
-                    <table class="styled-table">
+                    <table className="styled-table">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -40,62 +73,15 @@ const Users = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <td>1</td>
-                               <td>John Doe</td>
-                                <td>Developer</td>
-                                <td>Engineering</td>
-                                <td>Active</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jane Smith</td>
-                                <td>Designer</td>
-                                <td>Creative</td>
-                                <td>Inactive</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jane Smith</td>
-                                <td>Designer</td>
-                                <td>Creative</td>
-                                <td>Inactive</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Michael Brown</td>
-                                <td>Manager</td>
-                                <td>Operations</td>
-                                <td>Pending</td>
-                            </tr>
-                            <tr>
-                            <td>1</td>
-                               <td>John Doe</td>
-                                <td>Developer</td>
-                                <td>Engineering</td>
-                                <td>Active</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Jane Smith</td>
-                                <td>Designer</td>
-                                <td>Creative</td>
-                                <td>Inactive</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Michael Brown</td>
-                                <td>Manager</td>
-                                <td>Operations</td>
-                                <td>Pending</td>
-                            </tr>
-                            <tr>
-                            <td>1</td>
-                               <td>John Doe</td>
-                                <td>Developer</td>
-                                <td>Engineering</td>
-                                <td>Active</td>
-                            </tr>
+                            {userDetails.map((user,index) => (
+                                <tr key={index}>
+                                    <td>{index+1}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.role}</td>
+                                    <td>{user.department}</td>
+                                    <td>{user.status}</td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>
