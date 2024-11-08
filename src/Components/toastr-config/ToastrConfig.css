@@ -1,0 +1,9 @@
+.toast-message {
+    font-size: 13px;
+}
+#toast-container > .toast-success,
+#toast-container > .toast-error,
+#toast-container > .toast-warning,
+#toast-container > .toast-info {
+    opacity: 1 !important;
+}

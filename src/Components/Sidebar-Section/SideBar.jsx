@@ -42,6 +42,14 @@ const SideBar = () => {
               </div>
             </Link> 
           </li>
+          <li>
+            <Link to="/security-approval">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faPen} className='icon'/>
+                <p>Security-Approval</p>
+              </div>
+            </Link> 
+          </li>
         </ul>
       </div>
     </div>

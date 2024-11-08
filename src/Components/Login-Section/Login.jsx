@@ -5,12 +5,21 @@ import cone from './img/cone.png'
 import dron from './img/icosahedron.png'
 import spehere from './img/sphere.png'
 import torus from './img/torus.png'
+import toastr from '../toastr-config/ToastrConfig';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [visible, setVisible] = useState(false);
+    const navigate = useNavigate();
+
+    const handleSubmit = () =>{
+      toastr.info('Login Success','');
+      navigate('/user');
+    }
+
   return (
     <div className='login-container'>
-        <form action="" class="form-container">
+        <form action="" class="form-container" onSubmit={handleSubmit}>
             <h1 class="login__title">Mobitel - IAMS</h1>
 
             <div class="login__content">
