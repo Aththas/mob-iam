@@ -3,8 +3,7 @@ import '../PopupForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 
-const AddUser = ({ onClose }) => {
-
+const UpdateUser = ({ onClose }) => {
     const [formOpen, setFormOpen] = useState(false);
 
     useEffect(()=>{
@@ -15,7 +14,6 @@ const AddUser = ({ onClose }) => {
         setFormOpen(false);
         setTimeout(onClose, 1000);
     };
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,7 +29,7 @@ const AddUser = ({ onClose }) => {
                 <div className="popup-header">
                     <div className="popup-header-left">
                         <FontAwesomeIcon icon={faUserEdit} className='intern-icon'/>
-                        <h2>Add New Intern Details</h2>
+                        <h2>Update Intern Details #1</h2>
                     </div>
                     <div className="popup-header-right">
                         <button className='close-btn' onClick={handleFormClose}>X</button>
@@ -115,4 +113,4 @@ const AddUser = ({ onClose }) => {
   )
 }
 
-export default AddUser
+export default UpdateUser

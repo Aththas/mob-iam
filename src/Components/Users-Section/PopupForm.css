@@ -1,29 +1,78 @@
-/* Add these styles to your CSS file */
+/* Overlay and content slide-in animations */
+@keyframes slideInOverlay {
+  from {
+    transform: translateX(100%);
+}
+to {
+    transform: translateX(0);
+}
+}
+
+@keyframes slideOutOverlay {
+  from {
+    transform: translateX(0);
+}
+to {
+    transform: translateX(100%);
+}
+}
+
+@keyframes slideInContent {
+  from {
+      transform: translateX(100%);
+  }
+  to {
+      transform: translateX(0);
+  }
+}
+
+@keyframes slideOutContent {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(100%);
+  }
+}
+
+/* Popup overlay styles */
 .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    z-index: 99;
-  }
-  
-  .popup-content {
-    position: relative;
-    left: 25vw;
-    width: 60%;
-    height: 80%;
-    background: #F4F5F7;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  z-index: 99;
+  animation: slideInOverlay 1s forwards;
+}
+
+.popup-overlay.close {
+  animation: slideOutOverlay 1s forwards;
+}
+
+/* Popup content styles */
+.popup-content {
+  position: relative;
+  left: 25vw;
+  width: 60%;
+  min-height: 100px;
+  background: #F4F5F7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideInContent 1s forwards;
+}
+
+.popup-content.close {
+  animation: slideOutContent 1s forwards;
+}
+
   
   .popup-header{
     height: 6vh;
@@ -87,6 +136,10 @@
       justify-content: space-between;
       flex-wrap: wrap;
       margin-bottom: 30px;
+  }
+
+  .row:nth-last-child(1){
+    margin-bottom: 10px;
   }
 
   .input-group {
