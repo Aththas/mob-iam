@@ -1,7 +1,7 @@
 import React from 'react'
 import './SideBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserEdit, faClipboardList, faTachometerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faClipboardList, faTachometerAlt, faPen } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 
@@ -29,8 +29,16 @@ const SideBar = () => {
           <li>
             <Link to="/user">
               <div className='list-item'>
-                <FontAwesomeIcon icon={faUserEdit} className='icon'/>
+                <FontAwesomeIcon icon={faUser} className='icon'/>
                 <p>Interns</p>
+              </div>
+            </Link> 
+          </li>
+          <li>
+            <Link to="/manager-approval">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faPen} className='icon'/>
+                <p>Manager-Approval</p>
               </div>
             </Link> 
           </li>

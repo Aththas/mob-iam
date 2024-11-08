@@ -74,5 +74,8 @@ ul li:nth-child(2) a .list-item p{
     margin-left: 1.5vw;
 }
 ul li:nth-child(3) a .list-item p{
-    margin-left: 1vw;
+    margin-left: 1.5vw;
+}
+ul li:nth-child(4) a .list-item p{
+    margin-left: 1.3vw;
 }

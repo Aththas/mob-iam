@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../PopupForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const AddUser = ({ onClose }) => {
 
@@ -30,7 +30,7 @@ const AddUser = ({ onClose }) => {
 
                 <div className="popup-header">
                     <div className="popup-header-left">
-                        <FontAwesomeIcon icon={faUserEdit} className='intern-icon'/>
+                        <FontAwesomeIcon icon={faUserPlus} className='intern-icon'/>
                         <h2>Add New Intern Details</h2>
                     </div>
                     <div className="popup-header-right">

@@ -4,6 +4,7 @@ import LoginPage from './Pages/Login-page/LoginPage';
 import DashboardPage from './Pages/Dashboard-page/DashboardPage';
 import UserPage from './Pages/User-Page/UserPage';
 import AttendencePage from './Pages/Attendence-Page/AttendencePage';
+import ManagerApprovalPage from './Pages/Manager-Approval-Page/ManagerApprovalPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/dashboard' element={<DashboardPage/>}/>
         <Route path='/user' element={<UserPage/>}/>
         <Route path='/attendence' element={<AttendencePage/>}/>
+        <Route path='/manager-approval' element={<ManagerApprovalPage/>}/>
       </Routes>
     </Router>
   );

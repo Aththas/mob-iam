@@ -1,15 +1,11 @@
-import React, { useCallback, useState } from 'react';
-import './Users.css';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import './ManagerApproval.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faHistory, faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
-import AddUser from './Add-User/AddUser';
-import UpdateUser from './Update-User/UpdateUser';
-import ExtendInternship from './Extend-Internship/ExtendInternship';
 
-const Users = () => {
-    const [addForm, setAddForm] = useState(false);
-    const [updateForm, setUpdateForm] = useState(false);
-    const [extendForm, setExtendForm] = useState(false);
+const ManagerApproval = () => {
+    const [isHistory, setHistory] = useState(true);
 
     const userDetails = [
         {
@@ -22,7 +18,8 @@ const Users = () => {
             end: '2024-12-25',
             approval: 'accept',
             permission: 'accept',
-            status: 'active'
+            status: 'active',
+            requester: 'Amaya'
         },
         {
             id: 2,
@@ -34,7 +31,8 @@ const Users = () => {
             end: '2024-11-01',
             approval: 'pending',
             permission: 'pending',
-            status: 'active'
+            status: 'active',
+            requester: 'Amaya'
         },
         {
             id: 3,
@@ -46,40 +44,21 @@ const Users = () => {
             end: '2024-11-15',
             approval: 'reject',
             permission: 'reject',
-            status: 'active'
+            status: 'active',
+            requester: 'Amaya'
         }
     ];
 
-    const toggleForm = (setter, value) => {
-        setter(value);
+    const getColor = (status) =>{
+        if(status === 'accept') return "green";
+        if(status === 'pending') return "orange";
+        if(status === 'reject') return "red";
+        return "black";
     }
-
-    const isExtendable = useCallback((endDate) => {
-        const currentDate = new Date();
-        const end = new Date(endDate);
-        const tenDaysBeforeEndDate = new Date(end);
-        tenDaysBeforeEndDate.setDate(end.getDate() - 10);
-        const tenDaysAfterEndDate = new Date(end);
-        tenDaysAfterEndDate.setDate(end.getDate() + 10);
-
-        return  (tenDaysBeforeEndDate < currentDate && currentDate < tenDaysAfterEndDate);
-    },[]);
-
-    const getColor = useCallback((status) => {
-        if (status === 'accept') return 'green';
-        if (status === 'pending') return 'orange';
-        if (status === 'reject') return 'red';
-        return 'black';
-    },[]);
-
-    const isApproved = (status) =>{
-        if(status === 'pending') return false;
-        return true;
-    };
 
   return (
     <div className='main-user'>
-        <MainHeading icon={faUser} heading={"Users"}/>
+        <MainHeading icon={isHistory ? faPen : faHistory} heading={`Intern Entry Request ${!isHistory ? 'History' :''}`}/>
         <div className="main-section-container">
             <div className="main-content">
                 <div className="page-filter-and-add-new">
@@ -99,7 +78,9 @@ const Users = () => {
                         <input className='search-input' type='text' placeholder='search...' id='search' name='search' />
                         <button className='search-btn'>Search</button>
                     </div>
-                    <button className='add-btn' onClick={() => toggleForm(setAddForm, true)}>+</button>
+                    <button className='filter-btn' onClick={() => setHistory((cur) => !cur)}>
+                        <FontAwesomeIcon icon={isHistory ? faHistory : faEnvelopeOpenText} className='icon' />
+                    </button>
                 </div>
                 <div className="user-table">
                     <table className="styled-table">
@@ -111,10 +92,11 @@ const Users = () => {
                                 <th>Department</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
-                                <th>Approval</th>
-                                <th>Permission</th>
-                                <th>Extension</th>
-                                <th>Update</th>
+                                <th>Requester</th>
+                                <th>{isHistory ? 'Action':'My Approval'}</th>
+                                {!isHistory && (
+                                    <th>Security Permission</th>
+                                )}
                             </tr>
                         </thead>
                         <tbody>
@@ -126,26 +108,19 @@ const Users = () => {
                                     <td>{user.department}</td>
                                     <td>{user.start}</td>
                                     <td>{user.end}</td>
-                                    <td style={{color:getColor(user.approval), fontWeight:'900'}}>{user.approval}</td>
-                                    <td style={{color:getColor(user.permission), fontWeight:'900'}}>{user.permission}</td>
-                                    <td>
-                                        <button 
-                                            onClick={() => toggleForm(setExtendForm, true)}
-                                            className={`extend-btn ${!isExtendable(user.end) && 'disabled'}`}
-                                            disabled={!isExtendable(user.end)}
-                                        >
-                                            extend
-                                        </button>
-                                    </td>
-                                    <td>
-                                        <button 
-                                            onClick={() => toggleForm(setUpdateForm, true)}
-                                            className={`update-btn ${isApproved(user.approval) && 'disabled'}`}
-                                            disabled={isApproved(user.approval)}
-                                        >
-                                            update
-                                        </button>
-                                    </td>
+                                    <td>{user.requester}</td>
+                                    {isHistory ? (
+                                        <td>
+                                            <button className="accept-btn">accept</button>
+                                            <button className="reject-btn">reject</button>
+                                        </td>
+                                    ) : (
+                                        <td style={{color:getColor(user.approval), fontWeight:'900'}}>{user.approval}</td>
+                                    )} 
+
+                                    {!isHistory && (
+                                        <td style={{color:getColor(user.permission), fontWeight:'900'}}>{user.permission}</td>
+                                    )}
                                 </tr>
                             ))}
                         </tbody>
@@ -158,11 +133,8 @@ const Users = () => {
                 </div>
             </div>
         </div>
-        {addForm && <AddUser onClose={() => toggleForm(setAddForm, false)}/>}
-        {updateForm && <UpdateUser onClose={() => toggleForm(setUpdateForm, false)}/>}
-        {extendForm && <ExtendInternship onClose={() => toggleForm(setExtendForm, false)}/>}
     </div>
   )
 }
 
-export default Users
+export default ManagerApproval
