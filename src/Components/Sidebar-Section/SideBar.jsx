@@ -22,7 +22,15 @@ const SideBar = () => {
             <Link to="/attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p>Attendence</p>
+                <p>Entries</p>
+              </div>
+            </Link>       
+          </li>
+          <li>
+            <Link to="/mark-attendence">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faClipboardList} className='icon' />
+                <p>Mark - Entry</p>
               </div>
             </Link>       
           </li>

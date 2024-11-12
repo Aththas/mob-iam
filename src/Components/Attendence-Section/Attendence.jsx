@@ -60,7 +60,7 @@ const Attendence = () => {
 
 return (
 <div className='main-user' style={{overflowX: 'hidden'}}>
-    <MainHeading icon={faClipboardList} heading={"Attendance"}/>
+    <MainHeading icon={faClipboardList} heading={"Entries"}/>
     <div className="main-section-container">
         <div className="main-content">
             <div className="page-filter-and-add-new">

@@ -82,6 +82,6 @@ ul li:nth-child(4) a .list-item p{
 ul li:nth-child(5) a .list-item p{
     margin-left: 1.3vw;
 }
-ul li:nth-child(6) a .list-item p{
+ul li:nth-child(6) a .list-item p, ul li:nth-child(7) a .list-item p{
     margin-left: 1.2vw;
 }
