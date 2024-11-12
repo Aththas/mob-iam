@@ -2,6 +2,7 @@ import React from 'react'
 import './Attendence.css'
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
+import { Link } from 'react-router-dom';
 
 const Attendence = () => {
   
@@ -96,24 +97,28 @@ return (
                     <thead>
                         <tr>
                             <th>Date</th>
+                            <th>NIC</th>
+                            <th>Name</th>
                             <th>In Time</th>
                             <th>out Time</th>
-                            <th>Name</th>
-                            <th>NIC</th>
                             <th>Department</th>
-                            <th>Token</th>
+                            <th>Attendence</th>
                         </tr>
                     </thead>
                     <tbody>
                         {userDetails.map((user,index) => (
                             <tr key={index}>
                                 <td>{user.date}</td>
+                                <td>{user.nic}</td>
+                                <td>{`${user.first_name} ${user.last_name}`}</td>
                                 <td>{user.in_time}</td>
                                 <td>{user.out_time}</td>
-                                <td>{`${user.first_name} ${user.last_name}`}</td>
-                                <td>{user.nic}</td>
                                 <td>{user.department}</td>
-                                <td>{user.token}</td>
+                                <td>
+                                    <Link to="/user-attendence">
+                                        <button className='view-attendence-btn'>Attendence</button>
+                                    </Link>
+                                </td>
                             </tr>
                         ))}
                     </tbody>

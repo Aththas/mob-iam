@@ -8,6 +8,7 @@ import ManagerApprovalPage from './Pages/Manager-Approval-Page/ManagerApprovalPa
 import SecurityApprovalPage from './Pages/Security-Approval-Page/SecurityApprovalPage';
 import ApprovedUsersPage from './Pages/Approved-Users-Page/ApprovedUsersPage';
 import AttendenceMarkPage from './Pages/Attendence-Mark-Page/AttendenceMarkPage';
+import UsersAttendencePage from './Pages/Users-Attendence-Page/UsersAttendencePage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/user' element={<UserPage/>}/>
         <Route path='/approved-user' element={<ApprovedUsersPage/>}/>
         <Route path='/attendence' element={<AttendencePage/>}/>
+        <Route path='/user-attendence' element={<UsersAttendencePage/>}/>
         <Route path='/mark-attendence' element={<AttendenceMarkPage/>}/>
         <Route path='/manager-approval' element={<ManagerApprovalPage/>}/>
         <Route path='/security-approval' element={<SecurityApprovalPage/>}/>
