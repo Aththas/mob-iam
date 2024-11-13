@@ -58,7 +58,7 @@ const UsersAttendence = () => {
   
   return (
   <div className='main-user' style={{overflowX: 'hidden'}}>
-      <MainHeading icon={faClipboardList} heading={"User Attendence - Aththas"}/>
+      <MainHeading icon={faClipboardList} heading={"Intern Attendence - Aththas"}/>
       <div className="main-section-container">
           <div className="main-content">
               <div className="page-filter-and-add-new">

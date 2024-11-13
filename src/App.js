@@ -13,6 +13,7 @@ import VisitorPage from './Pages/User-Page/VisitorPage';
 import SecurityApprovalVisitorPage from './Pages/Security-Approval-Page/SecurityApprovalVisitorPage';
 import ApprovedVisitorsPage from './Pages/Approved-Users-Page/ApprovedVisitorsPage';
 import VisitorEntryMarkPage from './Pages/Attendence-Mark-Page/VisitorEntryMarkPage';
+import VisitorEntryPage from './Pages/Attendence-Page/VisitorEntryPage';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/approved-visitor' element={<ApprovedVisitorsPage/>}/>
         
         <Route path='/attendence' element={<AttendencePage/>}/>
+        <Route path='/attendence-visitor' element={<VisitorEntryPage/>}/>
         
         <Route path='/user-attendence' element={<UsersAttendencePage/>}/>
         

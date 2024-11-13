@@ -79,7 +79,7 @@ const Users = () => {
 
   return (
     <div className='main-user'>
-        <MainHeading icon={faUser} heading={"Users"}/>
+        <MainHeading icon={faUser} heading={"Interns"}/>
         <div className="main-section-container">
             <div className="main-content">
                 <div className="page-filter-and-add-new">

@@ -25,7 +25,7 @@ const AttendenceMark = () => {
 
 return (
 <div className='main-user' style={{overflowX: 'hidden'}}>
-    <MainHeading icon={faClipboardList} heading={"Mark Entry"}/>
+    <MainHeading icon={faClipboardList} heading={"Mark Intern Entry"}/>
     <div className="main-section-container">
         <div className="main-content">
             <div className="search-filter-container">

@@ -2,7 +2,6 @@ import React from 'react'
 import './Attendence.css'
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
-import { Link } from 'react-router-dom';
 
 const Attendence = () => {
   
@@ -61,7 +60,7 @@ const Attendence = () => {
 
 return (
 <div className='main-user' style={{overflowX: 'hidden'}}>
-    <MainHeading icon={faClipboardList} heading={"Intern Entries"}/>
+    <MainHeading icon={faClipboardList} heading={"Visitor Entries"}/>
     <div className="main-section-container">
         <div className="main-content">
             <div className="page-filter-and-add-new">
@@ -101,8 +100,7 @@ return (
                             <th>Name</th>
                             <th>In Time</th>
                             <th>out Time</th>
-                            <th>Department</th>
-                            <th>Attendence</th>
+                            <th>Allowed Department</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -114,11 +112,6 @@ return (
                                 <td>{user.in_time}</td>
                                 <td>{user.out_time}</td>
                                 <td>{user.department}</td>
-                                <td>
-                                    <Link to="/user-attendence">
-                                        <button className='view-attendence-btn'>Attendence</button>
-                                    </Link>
-                                </td>
                             </tr>
                         ))}
                     </tbody>
