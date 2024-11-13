@@ -11,6 +11,8 @@ import AttendenceMarkPage from './Pages/Attendence-Mark-Page/AttendenceMarkPage'
 import UsersAttendencePage from './Pages/Users-Attendence-Page/UsersAttendencePage';
 import VisitorPage from './Pages/User-Page/VisitorPage';
 import SecurityApprovalVisitorPage from './Pages/Security-Approval-Page/SecurityApprovalVisitorPage';
+import ApprovedVisitorsPage from './Pages/Approved-Users-Page/ApprovedVisitorsPage';
+import VisitorEntryMarkPage from './Pages/Attendence-Mark-Page/VisitorEntryMarkPage';
 
 function App() {
   return (
@@ -18,13 +20,22 @@ function App() {
       <Routes>
         <Route path='/' element={<LoginPage/>}/>
         <Route path='/dashboard' element={<DashboardPage/>}/>
+
         <Route path='/user' element={<UserPage/>}/>
         <Route path='/visitor' element={<VisitorPage/>}/>
+        
         <Route path='/approved-user' element={<ApprovedUsersPage/>}/>
+        <Route path='/approved-visitor' element={<ApprovedVisitorsPage/>}/>
+        
         <Route path='/attendence' element={<AttendencePage/>}/>
+        
         <Route path='/user-attendence' element={<UsersAttendencePage/>}/>
+        
         <Route path='/mark-attendence' element={<AttendenceMarkPage/>}/>
+        <Route path='/mark-attendence-visitor' element={<VisitorEntryMarkPage/>}/>
+        
         <Route path='/manager-approval' element={<ManagerApprovalPage/>}/>
+        
         <Route path='/security-approval' element={<SecurityApprovalPage/>}/>
         <Route path='/security-approval-visitor' element={<SecurityApprovalVisitorPage/>}/>
       </Routes>

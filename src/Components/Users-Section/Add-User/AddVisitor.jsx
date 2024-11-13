@@ -31,7 +31,7 @@ const AddVisitor = ({ onClose }) => {
                 <div className="popup-header">
                     <div className="popup-header-left">
                         <FontAwesomeIcon icon={faUserPlus} className='intern-icon'/>
-                        <h2>Add New Visitors Details</h2>
+                        <h2>Add New Visitor Entry Details</h2>
                     </div>
                     <div className="popup-header-right">
                         <button className='close-btn' onClick={handleFormClose}>X</button>

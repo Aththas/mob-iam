@@ -105,7 +105,7 @@ const SideBar = ({ title }) => {
             </Link> 
           </li>
           <li className={title===11 ? 'active' : ''}>
-            <Link to="/approved-user-visitor">
+            <Link to="/approved-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>
                 <p style={{marginLeft: '1.2vw'}}>Approved Visitors - (S)</p>

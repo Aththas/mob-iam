@@ -61,7 +61,7 @@ const SecurityApprovalVisitor = () => {
 
   return (
     <div className='main-user'>
-        <MainHeading icon={isHistory ? faPen : faHistory} heading={`Intern Entry Approval Request ${!isHistory ? 'History' :''}`}/>
+        <MainHeading icon={isHistory ? faPen : faHistory} heading={`Visitors Entry Approval Request ${!isHistory ? 'History' :''}`}/>
         <div className="main-section-container">
             <div className="main-content">
                 <div className="page-filter-and-add-new">
