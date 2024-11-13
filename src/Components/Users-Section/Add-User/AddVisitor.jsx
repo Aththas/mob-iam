@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import '../PopupForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
-const UpdateUser = ({ onClose }) => {
+const AddVisitor = ({ onClose }) => {
+
     const [formOpen, setFormOpen] = useState(false);
 
     useEffect(()=>{
@@ -14,6 +15,7 @@ const UpdateUser = ({ onClose }) => {
         setFormOpen(false);
         setTimeout(onClose, 1000);
     };
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,8 +30,8 @@ const UpdateUser = ({ onClose }) => {
 
                 <div className="popup-header">
                     <div className="popup-header-left">
-                        <FontAwesomeIcon icon={faUserEdit} className='intern-icon'/>
-                        <h2>Update Intern Details #1</h2>
+                        <FontAwesomeIcon icon={faUserPlus} className='intern-icon'/>
+                        <h2>Add New Intern Details</h2>
                     </div>
                     <div className="popup-header-right">
                         <button className='close-btn' onClick={handleFormClose}>X</button>
@@ -45,16 +47,6 @@ const UpdateUser = ({ onClose }) => {
                     <div class="input-group">
                         <input type="text" name="text" class="input" required/>
                         <label class="label">Last Name</label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Intern ID</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Email</label>
                     </div>
                   </div>
                   <div className="row">
@@ -93,4 +85,4 @@ const UpdateUser = ({ onClose }) => {
   )
 }
 
-export default UpdateUser
+export default AddVisitor

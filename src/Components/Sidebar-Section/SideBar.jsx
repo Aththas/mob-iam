@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './SideBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faClipboardList, faPen, faUserCheck } from '@fortawesome/free-solid-svg-icons';
@@ -36,7 +36,7 @@ const SideBar = ({ title }) => {
             <Link to="/user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUser} className='icon'/>
-                <p style={{marginLeft: '1.3vw'}}>Interns Request - (HR)</p>
+                <p style={{marginLeft: '1.3vw'}}>Entry Request - (HR)</p>
               </div>
             </Link> 
           </li>
@@ -67,55 +67,55 @@ const SideBar = ({ title }) => {
         </ul>
 
         <ul className='nav-list'>
-          <div className='li-heading' style={{marginTop: '2vh'}}>
+          <div className='li-heading' style={{marginTop: '5vh'}}>
               <div className='list-item'>
                 <p>Visitor Management</p>
               </div>      
           </div>
-          <li>
-            <Link to="/attendence">
+          <li className={title===7 ? 'active' : ''}>
+            <Link to="/attendence-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
                 <p style={{marginLeft: '1.5vw'}}>Entries - (S)</p>
               </div>
             </Link>       
           </li>
-          <li>
-            <Link to="/mark-attendence">
+          <li className={title===8 ? 'active' : ''}>
+            <Link to="/mark-attendence-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
                 <p style={{marginLeft: '1.5vw'}}>Mark Entry - (S)</p>
               </div>
             </Link>       
           </li>
-          <li>
-            <Link to="/user">
+          <li className={title===9 ? 'active' : ''}>
+            <Link to="/visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUser} className='icon'/>
-                <p style={{marginLeft: '1.3vw'}}>Interns Request - (HR)</p>
+                <p style={{marginLeft: '1.3vw'}}>Entry Request - (All)</p>
               </div>
             </Link> 
           </li>
-          <li>
-            <Link to="/security-approval">
+          <li className={title===10 ? 'active' : ''}>
+            <Link to="/security-approval-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faPen} className='icon'/>
                 <p style={{marginLeft: '1.2vw'}}>Security Approval - (S)</p>
               </div>
             </Link> 
           </li>
-          <li>
-            <Link to="/approved-user">
+          <li className={title===11 ? 'active' : ''}>
+            <Link to="/approved-user-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>
-                <p style={{marginLeft: '1.2vw'}}>Approved Interns - (S)</p>
+                <p style={{marginLeft: '1.2vw'}}>Approved Visitors - (S)</p>
               </div>
             </Link> 
           </li>
         </ul>
-        <div className="today-report-generation">
+        {/* <div className="today-report-generation">
             <button className='today-report-btn'>Today Report</button>
-        </div>
+        </div> */}
       </div>
     </div>
   )

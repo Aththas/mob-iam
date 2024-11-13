@@ -3,7 +3,7 @@ import '../PopupForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
 
-const UpdateUser = ({ onClose }) => {
+const UpdateVisitor = ({ onClose }) => {
     const [formOpen, setFormOpen] = useState(false);
 
     useEffect(()=>{
@@ -50,16 +50,6 @@ const UpdateUser = ({ onClose }) => {
                   <div className="row">
                     <div class="input-group">
                         <input type="text" name="text" class="input" required/>
-                        <label class="label">Intern ID</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Email</label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
                         <label class="label">NIC</label>
                     </div>
                     <div class="input-group">
@@ -93,4 +83,4 @@ const UpdateUser = ({ onClose }) => {
   )
 }
 
-export default UpdateUser
+export default UpdateVisitor

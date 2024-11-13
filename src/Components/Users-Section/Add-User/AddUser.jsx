@@ -81,26 +81,6 @@ const AddUser = ({ onClose }) => {
                   </div>
                   <div className="row">
                     <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Additional Field</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Additional Field</label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Additional Field</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Additional Field</label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="input-group">
                         <button type="submit" className='form-submit-btn'>Submit</button>
                     </div>
                     <div class="input-group">
