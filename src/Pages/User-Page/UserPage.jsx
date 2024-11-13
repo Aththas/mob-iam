@@ -9,7 +9,7 @@ const UserPage = () => {
     <div className='admin-container'>
         <HeadBar/>
         <div className="main-container">
-            <SideBar/>
+            <SideBar title={3}/>
             <Users/>
         </div>
     </div>

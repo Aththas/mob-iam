@@ -9,7 +9,7 @@ const ManagerApprovalPage = () => {
     <div className='admin-container'>
         <HeadBar/>
         <div className="main-container">
-            <SideBar/>
+            <SideBar title={4}/>
             <ManagerApproval/>
         </div>
     </div>

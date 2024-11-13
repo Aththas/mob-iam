@@ -9,7 +9,7 @@ const AttendencePage = () => {
     <div className='admin-container'>
         <HeadBar/>
         <div className="main-container">
-            <SideBar/>
+            <SideBar title={1}/>
             <Attendence/>
         </div>
     </div>

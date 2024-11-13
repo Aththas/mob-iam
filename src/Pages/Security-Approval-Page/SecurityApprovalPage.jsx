@@ -9,7 +9,7 @@ const SecurityApprovalPage = () => {
     <div className='admin-container'>
         <HeadBar/>
         <div className="main-container">
-            <SideBar/>
+            <SideBar title={5}/>
             <SecurityApproval/>
         </div>
     </div>

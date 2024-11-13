@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SideBar.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faClipboardList, faTachometerAlt, faPen, faUserCheck } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faClipboardList, faPen, faUserCheck } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
 
-const SideBar = () => {
+const SideBar = ({ title }) => {
+
   return (
     <div className='sibebar'>
         <div className='sidebar-menu'>
@@ -15,7 +16,7 @@ const SideBar = () => {
                 <p style={{fontWeight: 'bold'}}>Intern Management</p>
               </div>      
           </li>
-          <li>
+          <li className={title===1 ? 'active' : ''}>
             <Link to="/attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
@@ -23,7 +24,7 @@ const SideBar = () => {
               </div>
             </Link>       
           </li>
-          <li>
+          <li className={title===2 ? 'active' : ''}>
             <Link to="/mark-attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
@@ -31,7 +32,7 @@ const SideBar = () => {
               </div>
             </Link>       
           </li>
-          <li>
+          <li className={title===3 ? 'active' : ''}>
             <Link to="/user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUser} className='icon'/>
@@ -39,7 +40,7 @@ const SideBar = () => {
               </div>
             </Link> 
           </li>
-          <li>
+          <li className={title===4 ? 'active' : ''}>
             <Link to="/manager-approval">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faPen} className='icon'/>
@@ -47,7 +48,7 @@ const SideBar = () => {
               </div>
             </Link> 
           </li>
-          <li>
+          <li className={title===5 ? 'active' : ''}>
             <Link to="/security-approval">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faPen} className='icon'/>
@@ -55,7 +56,7 @@ const SideBar = () => {
               </div>
             </Link> 
           </li>
-          <li>
+          <li className={title===6 ? 'active' : ''}>
             <Link to="/approved-user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>

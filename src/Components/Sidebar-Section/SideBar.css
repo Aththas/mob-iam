@@ -67,6 +67,13 @@
     cursor: pointer;
 }
 
+.active{
+    background-color: #F4F5F7;
+}
+.active a .list-item{
+    color: #7AB2D3;
+}
+
 .today-report-generation{
     position: absolute;
     left: 7vh;

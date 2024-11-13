@@ -9,7 +9,7 @@ const UsersAttendencePage = () => {
     <div className='admin-container'>
         <HeadBar/>
         <div className="main-container">
-            <SideBar/>
+            <SideBar title={1}/>
             <UsersAttendence/>
         </div>
     </div>
