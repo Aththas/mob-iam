@@ -20,7 +20,7 @@ const Login = () => {
   return (
     <div className='login-container'>
         <form action="" class="form-container" onSubmit={handleSubmit}>
-            <h1 class="login__title">Mobitel - IAMS</h1>
+            {/* <h1 class="login__title">Mobitel - IAMS</h1> */}
 
             <div class="login__content">
                <div class="login__box">

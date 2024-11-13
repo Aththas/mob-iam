@@ -67,6 +67,9 @@ const SideBar = () => {
             </Link> 
           </li>
         </ul>
+        <div className="today-report-generation">
+            <button className='today-report-btn'>Today Report</button>
+        </div>
       </div>
     </div>
   )

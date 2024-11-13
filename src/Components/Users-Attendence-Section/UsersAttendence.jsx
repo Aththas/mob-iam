@@ -62,7 +62,8 @@ const UsersAttendence = () => {
       <div className="main-section-container">
           <div className="main-content">
               <div className="page-filter-and-add-new">
-                  <div className="page-filter">
+                  <div className="report-section">
+                    <button className='report-btn'>Download Attendence Report</button>
                   </div>
                   <div className='date-container'>
                       <div class="input-group">

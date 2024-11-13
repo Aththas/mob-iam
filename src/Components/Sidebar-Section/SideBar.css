@@ -85,3 +85,26 @@ ul li:nth-child(5) a .list-item p{
 ul li:nth-child(6) a .list-item p, ul li:nth-child(7) a .list-item p{
     margin-left: 1.2vw;
 }
+
+.today-report-generation{
+    position: absolute;
+    left: 7vh;
+    bottom: 5vh;
+}
+
+.today-report-generation .today-report-btn{
+    color: #7AB2D3;
+    background-color: #F4F5F7;
+    border: none;
+    padding: 0.71vh 2vh;
+    cursor: pointer;    
+    font-size: 0.8rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.today-report-generation .today-report-btn:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transform: translateY(3px);
+}

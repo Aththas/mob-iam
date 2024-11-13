@@ -82,30 +82,28 @@ button{
     align-items: center;
 }
 
-.page-filter{
+.report-section{
     position: relative;
     left: 2vh;
 }
 
-.page-filter label{
-    color: #333533;
-    font-size: 0.8rem;
-}
-
-.page-filter select{
-    outline: none;
-    position: relative;
-    left: 1vh;
-    border: 1px solid #7AB2D3;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+.report-section .report-btn{
     color: #F4F5F7;
     background-color: #7AB2D3;
-    width: 50px;
+    border: none;
+    padding: 0.71vh 2vh;
+    cursor: pointer;    
+    font-size: 0.8rem;
+
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+.report-section .report-btn:active {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transform: translateY(3px);
 }
 
-.page-filter select option:hover{
-    background-color: #7AB2D3;
-}
+
 
 .date-container{
     position: relative;

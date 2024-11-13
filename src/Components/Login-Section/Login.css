@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100vh;
     margin: 0;
-    background-image: url('../../Images/iams.jpg');
+    background-image: url('../../Images/mob-new-bg-2.png');
     background-position: center;
     background-size: cover;
     display: flex;
@@ -24,13 +24,13 @@ a{
 .form-container{
     width: 30vw;
     position: relative;
-    background-color: hsla(0, 0%, 10%, 0.1);
-    border: 2px solid hsl(217, 75%, 80%);
+    /* background-color: hsla(0, 0%, 10%, 0.1); */
+    /* border: 2px solid #059D05; */
     margin: 1.5vh;
     padding: 5vh 3vw;
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 15px hsl(217, 75%, 80%);
+    /* border-radius: 1rem; */
+    /* backdrop-filter: blur(10px); */
+    /* box-shadow: 0 0 15px #059D05; */
 }
 
 .login__title {
@@ -137,7 +137,7 @@ a{
   width: 100%;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: hsl(217, 75%, 80%);
+  background-color: #059D05;
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 2rem;
