@@ -13,7 +13,6 @@ const Login = () => {
     const navigate = useNavigate();
 
     const handleSubmit = () =>{
-      toastr.info('Login Success','');
       navigate('/user');
     }
 
@@ -27,7 +26,7 @@ const Login = () => {
                   <i class="ri-user-3-line login__icon"></i>
 
                   <div class="login__box-input">
-                     <input type="email" required class="login__input" id="login-email" placeholder=" "/>
+                     <input type="email" class="login__input" id="login-email" placeholder=" "/>
                      <label for="login-email" class="login__label">Email</label>
                   </div>
                </div>
@@ -36,7 +35,7 @@ const Login = () => {
                   <i class="ri-lock-2-line login__icon"></i>
 
                   <div class="login__box-input">
-                     <input type={visible ? "text" : "password"} required class="login__input" id="login-pass" placeholder=" "/>
+                     <input type={visible ? "text" : "password"} class="login__input" id="login-pass" placeholder=" "/>
                      <label for="login-pass" class="login__label">Password</label>
                      <i class={`${visible ? "ri-eye-line":"ri-eye-off-line"} login__eye`} id="login-eye" onClick={()=>setVisible((cur) => !cur)}></i>
                   </div>
