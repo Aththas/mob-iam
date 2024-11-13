@@ -67,25 +67,6 @@
     cursor: pointer;
 }
 
-ul li:nth-child(1) a .list-item p{
-    margin-left: 1.2vw;
-}
-ul li:nth-child(2) a .list-item p{
-    margin-left: 1.5vw;
-}
-ul li:nth-child(3) a .list-item p{
-    margin-left: 1.5vw;
-}
-ul li:nth-child(4) a .list-item p{
-    margin-left: 1.3vw;
-}
-ul li:nth-child(5) a .list-item p{
-    margin-left: 1.3vw;
-}
-ul li:nth-child(6) a .list-item p, ul li:nth-child(7) a .list-item p{
-    margin-left: 1.2vw;
-}
-
 .today-report-generation{
     position: absolute;
     left: 7vh;

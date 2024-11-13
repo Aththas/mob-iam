@@ -11,18 +11,15 @@ const SideBar = () => {
         <div className='sidebar-menu'>
         <ul className='nav-list'>
           <li>
-            <Link to="/dashboard">
               <div className='list-item'>
-                <FontAwesomeIcon icon={faTachometerAlt} className='icon' />
-                <p>Dashboard</p>
-              </div>
-            </Link>       
+                <p style={{fontWeight: 'bold'}}>Intern Management</p>
+              </div>      
           </li>
           <li>
             <Link to="/attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p>Entries</p>
+                <p style={{marginLeft: '1.5vw'}}>Entries - (S)</p>
               </div>
             </Link>       
           </li>
@@ -30,7 +27,7 @@ const SideBar = () => {
             <Link to="/mark-attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p>Mark - Entry</p>
+                <p style={{marginLeft: '1.5vw'}}>Mark Entry - (S)</p>
               </div>
             </Link>       
           </li>
@@ -38,7 +35,7 @@ const SideBar = () => {
             <Link to="/user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUser} className='icon'/>
-                <p>Interns - Request</p>
+                <p style={{marginLeft: '1.3vw'}}>Interns Request - (HR)</p>
               </div>
             </Link> 
           </li>
@@ -46,7 +43,7 @@ const SideBar = () => {
             <Link to="/manager-approval">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faPen} className='icon'/>
-                <p>Manager - Approval</p>
+                <p style={{marginLeft: '1.3vw'}}>Manager Approval - (M)</p>
               </div>
             </Link> 
           </li>
@@ -54,7 +51,7 @@ const SideBar = () => {
             <Link to="/security-approval">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faPen} className='icon'/>
-                <p>Security - Approval</p>
+                <p style={{marginLeft: '1.2vw'}}>Security Approval - (S)</p>
               </div>
             </Link> 
           </li>
@@ -62,7 +59,55 @@ const SideBar = () => {
             <Link to="/approved-user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>
-                <p>Approved - Interns</p>
+                <p style={{marginLeft: '1.2vw'}}>Approved Interns - (S)</p>
+              </div>
+            </Link> 
+          </li>
+        </ul>
+
+        <ul className='nav-list'>
+          <li>
+              <div className='list-item'>
+                <p style={{fontWeight: 'bold'}}>Visitor Management</p>
+              </div>      
+          </li>
+          <li>
+            <Link to="/attendence">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faClipboardList} className='icon' />
+                <p style={{marginLeft: '1.5vw'}}>Entries - (S)</p>
+              </div>
+            </Link>       
+          </li>
+          <li>
+            <Link to="/mark-attendence">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faClipboardList} className='icon' />
+                <p style={{marginLeft: '1.5vw'}}>Mark Entry - (S)</p>
+              </div>
+            </Link>       
+          </li>
+          <li>
+            <Link to="/user">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faUser} className='icon'/>
+                <p style={{marginLeft: '1.3vw'}}>Interns Request - (HR)</p>
+              </div>
+            </Link> 
+          </li>
+          <li>
+            <Link to="/security-approval">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faPen} className='icon'/>
+                <p style={{marginLeft: '1.2vw'}}>Security Approval - (S)</p>
+              </div>
+            </Link> 
+          </li>
+          <li>
+            <Link to="/approved-user">
+              <div className='list-item'>
+                <FontAwesomeIcon icon={faUserCheck} className='icon'/>
+                <p style={{marginLeft: '1.2vw'}}>Approved Interns - (S)</p>
               </div>
             </Link> 
           </li>
