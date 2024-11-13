@@ -2,7 +2,7 @@ import React from 'react'
 import '../Page-style/pagestyle.css'
 import HeadBar from '../../Components/Headbar-Section/HeadBar'
 import SideBar from '../../Components/Sidebar-Section/SideBar'
-import AttendenceMark from '../../Components/Attendence-Mark-Section/AttendenceMark'
+import VisitorEntryMark from '../../Components/Attendence-Mark-Section/VisitorEntryMark'
 
 const VisitorEntryMarkPage = () => {
   return (
@@ -10,7 +10,7 @@ const VisitorEntryMarkPage = () => {
         <HeadBar/>
         <div className="main-container">
             <SideBar  title={8}/>
-            <AttendenceMark/>
+            <VisitorEntryMark/>
         </div>
     </div>
   )
