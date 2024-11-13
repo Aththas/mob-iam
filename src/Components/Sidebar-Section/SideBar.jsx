@@ -11,11 +11,11 @@ const SideBar = ({ title }) => {
     <div className='sibebar'>
         <div className='sidebar-menu'>
         <ul className='nav-list'>
-          <li>
+          <div className='li-heading'>
               <div className='list-item'>
-                <p style={{fontWeight: 'bold'}}>Intern Management</p>
+                <p>Intern Management</p>
               </div>      
-          </li>
+          </div>
           <li className={title===1 ? 'active' : ''}>
             <Link to="/attendence">
               <div className='list-item'>
@@ -67,11 +67,11 @@ const SideBar = ({ title }) => {
         </ul>
 
         <ul className='nav-list'>
-          <li>
+          <div className='li-heading' style={{marginTop: '2vh'}}>
               <div className='list-item'>
-                <p style={{fontWeight: 'bold'}}>Visitor Management</p>
+                <p>Visitor Management</p>
               </div>      
-          </li>
+          </div>
           <li>
             <Link to="/attendence">
               <div className='list-item'>

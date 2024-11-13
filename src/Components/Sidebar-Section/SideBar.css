@@ -67,6 +67,29 @@
     cursor: pointer;
 }
 
+.li-heading{
+    position: relative;
+    left: 2vw;
+    top: 4vh;
+    height: 5vh;
+    width: 13vw;
+    padding-left:1vh;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    color: #F4F5F7;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1vh;
+    transition: color 0.5s ease;
+    overflow: hidden;
+}
+
+.li-heading p{
+    font-weight: bold;
+}
+
 .active{
     background-color: #F4F5F7;
 }
