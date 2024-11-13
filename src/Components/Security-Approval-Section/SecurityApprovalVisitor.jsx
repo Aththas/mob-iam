@@ -1,12 +1,11 @@
-import React, { useCallback, useState } from 'react';
-import './Users.css';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
+import './SecurityApproval.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faHistory, faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
-import AddVisitor from './Add-User/AddVisitor';
 
-const Visitor = () => {
-    const [addForm, setAddForm] = useState(false);
-    // const [updateForm, setUpdateForm] = useState(false);
+const SecurityApprovalVisitor = () => {
+    const [isHistory, setHistory] = useState(true);
 
     const userDetails = [
         {
@@ -19,7 +18,9 @@ const Visitor = () => {
             end: '2024-12-25',
             approval: 'accept',
             permission: 'accept',
-            status: 'active'
+            status: 'active',
+            requester: 'Amaya',
+            approver: 'Musthalie'
         },
         {
             id: 2,
@@ -31,7 +32,9 @@ const Visitor = () => {
             end: '2024-11-01',
             approval: 'pending',
             permission: 'pending',
-            status: 'active'
+            status: 'active',
+            requester: 'Amaya',
+            approver: 'Musthalie'
         },
         {
             id: 3,
@@ -43,24 +46,22 @@ const Visitor = () => {
             end: '2024-11-15',
             approval: 'reject',
             permission: 'reject',
-            status: 'active'
+            status: 'active',
+            requester: 'Amaya',
+            approver: 'Musthalie'
         }
     ];
 
-    const toggleForm = (setter, value) => {
-        setter(value);
+    const getColor = (status) =>{
+        if(status === 'accept') return "green";
+        if(status === 'pending') return "orange";
+        if(status === 'reject') return "red";
+        return "black";
     }
-
-    const getColor = useCallback((status) => {
-        if (status === 'accept') return 'green';
-        if (status === 'pending') return 'orange';
-        if (status === 'reject') return 'red';
-        return 'black';
-    },[]);
 
   return (
     <div className='main-user'>
-        <MainHeading icon={faUser} heading={"Visitors"}/>
+        <MainHeading icon={isHistory ? faPen : faHistory} heading={`Intern Entry Approval Request ${!isHistory ? 'History' :''}`}/>
         <div className="main-section-container">
             <div className="main-content">
                 <div className="page-filter-and-add-new">
@@ -80,7 +81,9 @@ const Visitor = () => {
                         <input className='search-input' type='text' placeholder='search...' id='search' name='search' />
                         <button className='search-btn'>Search</button>
                     </div>
-                    <button className='add-btn' onClick={() => toggleForm(setAddForm, true)}>+</button>
+                    <button className='filter-btn' onClick={() => setHistory((cur) => !cur)}>
+                        <FontAwesomeIcon icon={isHistory ? faHistory : faEnvelopeOpenText} className='icon' />
+                    </button>
                 </div>
                 <div className="user-table">
                     <table className="styled-table">
@@ -91,8 +94,8 @@ const Visitor = () => {
                                 <th>Allowed Department</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
-                                <th>Permission</th>
-                                {/* <th>Update</th> */}
+                                <th>Requester</th>
+                                <th>{isHistory ? 'Action':'My Approval'}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,16 +106,15 @@ const Visitor = () => {
                                     <td>{user.department}</td>
                                     <td>{user.start}</td>
                                     <td>{user.end}</td>
-                                    <td style={{color:getColor(user.permission), fontWeight:'900'}}>{user.permission}</td>
-                                    {/* <td>
-                                        <button 
-                                            onClick={() => toggleForm(setUpdateForm, true)}
-                                            className={`update-btn ${isApproved(user.approval) && 'disabled'}`}
-                                            disabled={isApproved(user.approval)}
-                                        >
-                                            update
-                                        </button>
-                                    </td> */}
+                                    <td>{user.requester}</td>
+                                    {isHistory ? (
+                                        <td>
+                                            <button className="accept-btn">accept</button>
+                                            <button className="reject-btn">reject</button>
+                                        </td>
+                                    ) : (
+                                        <td style={{color:getColor(user.approval), fontWeight:'900'}}>{user.approval}</td>
+                                    )} 
                                 </tr>
                             ))}
                         </tbody>
@@ -125,10 +127,8 @@ const Visitor = () => {
                 </div>
             </div>
         </div>
-        {addForm && <AddVisitor onClose={() => toggleForm(setAddForm, false)}/>}
-        {/* {updateForm && <UpdateVisitor onClose={() => toggleForm(setUpdateForm, false)}/>} */}
     </div>
   )
 }
 
-export default Visitor
+export default SecurityApprovalVisitor

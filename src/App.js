@@ -10,6 +10,7 @@ import ApprovedUsersPage from './Pages/Approved-Users-Page/ApprovedUsersPage';
 import AttendenceMarkPage from './Pages/Attendence-Mark-Page/AttendenceMarkPage';
 import UsersAttendencePage from './Pages/Users-Attendence-Page/UsersAttendencePage';
 import VisitorPage from './Pages/User-Page/VisitorPage';
+import SecurityApprovalVisitorPage from './Pages/Security-Approval-Page/SecurityApprovalVisitorPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/mark-attendence' element={<AttendenceMarkPage/>}/>
         <Route path='/manager-approval' element={<ManagerApprovalPage/>}/>
         <Route path='/security-approval' element={<SecurityApprovalPage/>}/>
+        <Route path='/security-approval-visitor' element={<SecurityApprovalVisitorPage/>}/>
       </Routes>
     </Router>
   );

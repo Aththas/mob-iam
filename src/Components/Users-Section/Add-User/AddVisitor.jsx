@@ -31,7 +31,7 @@ const AddVisitor = ({ onClose }) => {
                 <div className="popup-header">
                     <div className="popup-header-left">
                         <FontAwesomeIcon icon={faUserPlus} className='intern-icon'/>
-                        <h2>Add New Intern Details</h2>
+                        <h2>Add New Visitors Details</h2>
                     </div>
                     <div className="popup-header-right">
                         <button className='close-btn' onClick={handleFormClose}>X</button>
@@ -56,7 +56,7 @@ const AddVisitor = ({ onClose }) => {
                     </div>
                     <div class="input-group">
                         <input type="text" name="text" class="input" required/>
-                        <label class="label">Department</label>
+                        <label class="label">Allowed Department</label>
                     </div>
                   </div>
                   <div className="row">

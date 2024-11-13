@@ -5,7 +5,6 @@ import cone from './img/cone.png'
 import dron from './img/icosahedron.png'
 import spehere from './img/sphere.png'
 import torus from './img/torus.png'
-import toastr from '../toastr-config/ToastrConfig';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
