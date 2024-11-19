@@ -3,7 +3,7 @@ import './Attendence.css'
 import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
 
-const Attendence = () => {
+const VisitorEntry = () => {
   
   const todayDate = new Date();
 
@@ -128,4 +128,4 @@ return (
 )
 }
 
-export default Attendence
+export default VisitorEntry
