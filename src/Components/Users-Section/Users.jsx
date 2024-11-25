@@ -19,7 +19,7 @@ const Users = () => {
             nic: '990623686V',
             department: 'Information Systems',
             start: '2024-03-25',
-            end: '2024-12-25',
+            end: '2024-12-05',
             approval: 'accept',
             permission: 'accept',
             status: 'active'

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../PopupForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserEdit } from '@fortawesome/free-solid-svg-icons';
+import { faUserEdit,faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const UpdateUser = ({ onClose }) => {
     const [formOpen, setFormOpen] = useState(false);
@@ -32,7 +32,7 @@ const UpdateUser = ({ onClose }) => {
                         <h2>Update Intern Details #1</h2>
                     </div>
                     <div className="popup-header-right">
-                        <button className='close-btn' onClick={handleFormClose}>X</button>
+                        <FontAwesomeIcon icon={faArrowRight} onClick={handleFormClose} className='goback-icon'/>
                     </div>
                 </div>
 
@@ -81,9 +81,9 @@ const UpdateUser = ({ onClose }) => {
                     <div class="input-group">
                         <button type="submit" className='form-submit-btn'>Submit</button>
                     </div>
-                    <div class="input-group">
+                    {/* <div class="input-group">
                         <button type="button" onClick={handleFormClose} className='form-close-btn'>Close</button>
-                    </div>
+                    </div> */}
                   </div>
               </form>
 

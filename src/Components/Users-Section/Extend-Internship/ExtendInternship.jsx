@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../PopupForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCalendarAlt,faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const ExtendInternship = ({ onClose }) => {
   
@@ -34,7 +34,7 @@ const ExtendInternship = ({ onClose }) => {
                         <h2>Extend Intern Period</h2>
                     </div>
                     <div className="popup-header-right">
-                        <button className='close-btn' onClick={handleFormClose}>X</button>
+                        <FontAwesomeIcon icon={faArrowRight} onClick={handleFormClose} className='goback-icon'/>
                     </div>
                 </div>
 

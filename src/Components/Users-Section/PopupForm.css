@@ -107,9 +107,19 @@ to {
     right: 2vh;
   }
 
+  .popup-header-right .goback-icon{
+    color: #F4F5F7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .popup-header-right .goback-icon:active{
+    transform: translateX(3px);
+  }
+
   .popup-header-right .close-btn{
     color: #F4F5F7;
-    background-color: #ff0000;
+    background-color: #4f85a4;
     border-radius: 50%;
     width: 30px;
     height: 30px;
@@ -199,7 +209,7 @@ to {
 }
 
 .form-close-btn{
-  background-color: #ff0000;
+  background-color: #d37a7a;
 }
 
 .form-close-btn:active, .form-submit-btn:active {
