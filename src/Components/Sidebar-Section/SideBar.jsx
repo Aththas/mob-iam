@@ -60,7 +60,7 @@ const SideBar = ({ title }) => {
             <Link to="/approved-user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>
-                <p style={{marginLeft: '1.2vw'}}>Approved Interns - (S)</p>
+                <p style={{marginLeft: '1.2vw'}}>Approved Requests - (S)</p>
               </div>
             </Link> 
           </li>
@@ -108,7 +108,7 @@ const SideBar = ({ title }) => {
             <Link to="/approved-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>
-                <p style={{marginLeft: '1.2vw'}}>Approved Visitors - (S)</p>
+                <p style={{marginLeft: '1.2vw'}}>Approved Requests - (S)</p>
               </div>
             </Link> 
           </li>

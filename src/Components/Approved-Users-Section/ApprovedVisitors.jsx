@@ -52,7 +52,7 @@ const ApprovedVisitors = () => {
 
 return (
   <div className='main-user' style={{overflowX: 'hidden'}}>
-      <MainHeading icon={faUserCheck} heading={"Approved Visitors"}/>
+      <MainHeading icon={faUserCheck} heading={"Approved Requests"}/>
       <div className="main-section-container">
           <div className="main-content">
               <div className="page-filter-and-add-new">
