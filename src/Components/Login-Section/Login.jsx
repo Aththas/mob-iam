@@ -8,16 +8,19 @@ import torus from './img/torus.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toastr from '../toastr-config/ToastrConfig';
+import Loading from '../Loading-Spinner/Loading';
 
 const Login = () => {
     const [visible, setVisible] = useState(false);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+   
 
     const handleSubmit = async (e) =>{
       e.preventDefault();
-
+      setLoading(true);
       try{
          const response = await axios.post("http://localhost:8090/vems_backend/api/v1/auth/authentication",{
             email,
@@ -37,7 +40,9 @@ const Login = () => {
       }catch(error){
             console.log(error);
             toastr.error("Network Error");
-      }finally{}
+      }finally{
+         setLoading(false);
+      }
     };
 
     const handleLoginRedirect = (message) => {
@@ -58,6 +63,7 @@ const Login = () => {
 
   return (
     <div className='login-container'>
+      {loading && <Loading/>}
         <form action="" className="form-container" onSubmit={handleSubmit}>
             {/* <h1 className="login__title">Mobitel - IAMS</h1> */}
 
