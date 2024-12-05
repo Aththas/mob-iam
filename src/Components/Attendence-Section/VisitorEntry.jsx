@@ -81,13 +81,13 @@ return (
                     <button className='search-btn'>Search</button>
                 </div>
                 <div className='date-container'>
-                    <div class="input-group">
-                        <input type="date" name="text" class="input date-input" required defaultValue="2024-11-01" max={yesterday} min="2023-01-01"/>
-                        <label class="label">From</label>
+                    <div className="input-group">
+                        <input type="date" name="text" className="input date-input" required defaultValue="2024-11-01" max={yesterday} min="2023-01-01"/>
+                        <label className="label">From</label>
                     </div>
-                    <div class="input-group">
-                        <input type="date" name="text" class="input date-input" required defaultValue={today} max={today} min="2023-01-01"/>
-                        <label class="label">To</label>
+                    <div className="input-group">
+                        <input type="date" name="text" className="input date-input" required defaultValue={today} max={today} min="2023-01-01"/>
+                        <label className="label">To</label>
                     </div>
                 </div>
             </div>
