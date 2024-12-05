@@ -31,7 +31,7 @@ const Visitor = () => {
             }
         }catch(error){
             console.log(error);
-            toastr.error("Network Error");
+            toastr.error(error.response.data.message || "Network Error");
         }finally{
             setLoading(false);
         }
@@ -46,12 +46,12 @@ const Visitor = () => {
         setter(value);
     }
 
-    const getColor = useCallback((status) => {
+    const getColor = (status) => {
         if (status === 'accept') return 'green';
         if (status === 'pending') return 'orange';
         if (status === 'reject') return 'red';
         return 'black';
-    },[]);
+    };
 
     const handlePageChange = (newPage) => {
         setPage(newPage);
@@ -113,9 +113,9 @@ const Visitor = () => {
                                     <td>{visitorRequest.department}</td>
                                     <td>{visitorRequest.startDate}</td>
                                     <td>{visitorRequest.endDate}</td>
-                                    <td>{visitorRequest.nightStay}</td>
+                                    <td>{visitorRequest.nightStay.toUpperCase()}</td>
                                     <td style={{color:getColor(visitorRequest.permission), fontWeight:'900'}}>
-                                        {visitorRequest.permission}
+                                        {visitorRequest.permission.toUpperCase()}
                                     </td>
                                 </tr>
                             ))}
@@ -129,7 +129,7 @@ const Visitor = () => {
                 </div>
             </div>
         </div>
-        {addForm && <AddVisitor onClose={() => toggleForm(setAddForm, false)}/>}
+        {addForm && <AddVisitor onClose={() => toggleForm(setAddForm, false)} fetchMyVisitorRequests={fetchMyVisitorRequests}/>}
     </div>
   )
 }

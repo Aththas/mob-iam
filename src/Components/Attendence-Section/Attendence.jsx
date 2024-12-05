@@ -83,7 +83,7 @@ return (
                 </div>
                 <div className='date-container'>
                     <div className="input-group">
-                        <input type="date" name="text" className="input date-input" required defaultValue="2024-11-01" max={yesterday} min="2023-01-01"/>
+                        <input type="date" name="text" className="input date-input" required defaultValue={yesterday} max={today} min="2023-01-01"/>
                         <label className="label">From</label>
                     </div>
                     <div className="input-group">

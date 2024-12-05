@@ -38,50 +38,50 @@ const UpdateUser = ({ onClose }) => {
 
                <form onSubmit={handleSubmit}>
                   <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">First Name</label>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">First Name</label>
                     </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Last Name</label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Intern ID</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Email</label>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">Last Name</label>
                     </div>
                   </div>
                   <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">NIC</label>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">Intern ID</label>
                     </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Department</label>
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Start Date</label>
-                    </div>
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">End Date</label>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">Email</label>
                     </div>
                   </div>
                   <div className="row">
-                    <div class="input-group">
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">NIC</label>
+                    </div>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">Department</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">Start Date</label>
+                    </div>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">End Date</label>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="input-group">
                         <button type="submit" className='form-submit-btn'>Submit</button>
                     </div>
-                    {/* <div class="input-group">
+                    {/* <div className="input-group">
                         <button type="button" onClick={handleFormClose} className='form-close-btn'>Close</button>
                     </div> */}
                   </div>

@@ -28,12 +28,11 @@ axiosInstance.interceptors.response.use(
 
             try{
                 const refreshToken = sessionStorage.getItem("refreshToken");
-                const response = await axiosInstance.post("/auth/refresh", {}, {
+                const response = await axios.post("http://localhost:8090/vems_backend/api/v1/auth/refresh", {}, {
                     headers: {
                         Authorization: `Bearer ${refreshToken}`
                       }
                 });
-
                 const { accessToken } = response.data.data;
                 sessionStorage.setItem('accessToken', accessToken);
 

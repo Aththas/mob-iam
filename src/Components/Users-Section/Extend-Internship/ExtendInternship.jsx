@@ -40,11 +40,11 @@ const ExtendInternship = ({ onClose }) => {
 
                <form onSubmit={handleSubmit}>
                   <div className="row">
-                    <div class="input-group">
-                        <input type="text" name="text" class="input" required/>
-                        <label class="label">Extend Upto</label>
+                    <div className="input-group">
+                        <input type="text" name="text" className="input" required/>
+                        <label className="label">Extend Upto</label>
                     </div>
-                    <div class="input-group">
+                    <div className="input-group">
                         <button type="submit" className='form-submit-btn'>Submit</button>
                     </div>
                   </div>
