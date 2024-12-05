@@ -108,7 +108,7 @@ const Login = () => {
                   <label htmlFor="login-check" className="login__check-label">Remember me</label>
                </div>
 
-               <a href="#" className="login__forgot">Forgot Password?</a>
+               {/* <a href="#" className="login__forgot">Forgot Password?</a> */}
             </div>
 
             <button type="submit" className="login__button">Login
@@ -119,7 +119,7 @@ const Login = () => {
             </button>
 
             <p className="login__register">
-               Don't have an account? <a href="#">Register</a>
+               {/* Don't have an account? <a href="#">Register</a> */}
             </p>
          </form>
     </div>

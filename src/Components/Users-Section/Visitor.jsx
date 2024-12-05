@@ -1,51 +1,46 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './Users.css';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
 import AddVisitor from './Add-User/AddVisitor';
+import { getMyVisitorRequests } from '../../APIs/visitorRequestApi';
+import toastr from '../toastr-config/ToastrConfig';
+import Loading from '../Loading-Spinner/Loading';
 
 const Visitor = () => {
     const [addForm, setAddForm] = useState(false);
+    const [page, setPage] = useState(0);
+    const [size, setSize] = useState(10);
+    const [sortBy, setSortBy] = useState('id');
+    const [ascending, setAscending] = useState(false);
+    const [visitorRequestList, setVisitorRequestList] = useState([]);
+    const [totalPages, setTotalPages] = useState(1);
+    const [loading, setLoading] = useState(false);
     // const [updateForm, setUpdateForm] = useState(false);
 
-    const userDetails = [
-        {
-            id: 1,
-            first_name: 'Aththas',
-            last_name: 'Rizwan',
-            nic: '990623686V',
-            department: 'Information Systems',
-            start: '2024-03-25',
-            end: '2024-12-25',
-            approval: 'accept',
-            permission: 'accept',
-            status: 'active'
-        },
-        {
-            id: 2,
-            first_name: 'Deelaka',
-            last_name: 'Gamage',
-            nic: '990622226V',
-            department: 'Information Systems',
-            start: '2024-03-25',
-            end: '2024-11-01',
-            approval: 'pending',
-            permission: 'pending',
-            status: 'active'
-        },
-        {
-            id: 3,
-            first_name: 'Amar',
-            last_name: 'Shenan',
-            nic: '990623386V',
-            department: 'Information Systems',
-            start: '2024-03-25',
-            end: '2024-11-15',
-            approval: 'reject',
-            permission: 'reject',
-            status: 'active'
+    const fetchMyVisitorRequests = useCallback(async () =>{
+        setLoading(true);
+        try{
+            const response = await getMyVisitorRequests(page, size, sortBy, ascending);
+            
+            if(response.data.success){
+                setVisitorRequestList(response.data.data);
+                setTotalPages(Math.ceil(response.data.message/size));
+            }else{
+                toastr.error(response.data.message);
+            }
+        }catch(error){
+            console.log(error);
+            toastr.error("Network Error");
+        }finally{
+            setLoading(false);
         }
-    ];
+
+    },[page, size, sortBy, ascending]);
+
+    useEffect(()=>{
+        fetchMyVisitorRequests();
+    },[fetchMyVisitorRequests]);
 
     const toggleForm = (setter, value) => {
         setter(value);
@@ -60,6 +55,7 @@ const Visitor = () => {
 
   return (
     <div className='main-user'>
+        {loading && <Loading/>}
         <MainHeading icon={faUser} heading={"Visitors"}/>
         <div className="main-section-container">
             <div className="main-content">
@@ -68,10 +64,10 @@ const Visitor = () => {
                         <label>
                             Entries per page: 
                             <select>
-                                <option value={8}>8</option>
                                 <option value={10}>10</option>
                                 <option value={25}>25</option>
                                 <option value={50}>50</option>
+                                <option value={75}>75</option>
                                 <option value={100}>100</option>
                             </select>
                         </label>
@@ -86,33 +82,31 @@ const Visitor = () => {
                     <table className="styled-table">
                         <thead>
                             <tr>
-                                <th>NIC</th>
+                                <th>#</th>
+                                <th>NIC/VID</th>
                                 <th>Name</th>
+                                <th>Company</th>
                                 <th>Allowed Department</th>
                                 <th>Start Date</th>
                                 <th>End Date</th>
+                                <th>Night Stay</th>
                                 <th>Permission</th>
-                                {/* <th>Update</th> */}
                             </tr>
                         </thead>
                         <tbody>
-                            {userDetails.map((user,index) => (
+                            {visitorRequestList.map((visitorRequest,index) => (
                                 <tr key={index}>
-                                    <td>{user.nic}</td>
-                                    <td>{`${user.first_name} ${user.last_name}`}</td>
-                                    <td>{user.department}</td>
-                                    <td>{user.start}</td>
-                                    <td>{user.end}</td>
-                                    <td style={{color:getColor(user.permission), fontWeight:'900'}}>{user.permission}</td>
-                                    {/* <td>
-                                        <button 
-                                            onClick={() => toggleForm(setUpdateForm, true)}
-                                            className={`update-btn ${isApproved(user.approval) && 'disabled'}`}
-                                            disabled={isApproved(user.approval)}
-                                        >
-                                            update
-                                        </button>
-                                    </td> */}
+                                    <td>{index + 1 + page * size}</td>
+                                    <td>{visitorRequest.visitor.verificationId}</td>
+                                    <td>{visitorRequest.visitor.name}</td>
+                                    <td>{visitorRequest.visitor.company}</td>
+                                    <td>{visitorRequest.department}</td>
+                                    <td>{visitorRequest.startDate}</td>
+                                    <td>{visitorRequest.endDate}</td>
+                                    <td>{visitorRequest.nightStay}</td>
+                                    <td style={{color:getColor(visitorRequest.permission), fontWeight:'900'}}>
+                                        {visitorRequest.permission}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
