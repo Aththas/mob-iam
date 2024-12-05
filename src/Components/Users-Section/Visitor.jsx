@@ -11,12 +11,12 @@ const Visitor = () => {
     const [addForm, setAddForm] = useState(false);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
-    const [sortBy, setSortBy] = useState('id');
-    const [ascending, setAscending] = useState(false);
+    // const [sortBy, setSortBy] = useState('id');
+    // const [ascending, setAscending] = useState(false);
+    const sortBy = 'id'; const ascending = false;
     const [visitorRequestList, setVisitorRequestList] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(false);
-    // const [updateForm, setUpdateForm] = useState(false);
 
     const fetchMyVisitorRequests = useCallback(async () =>{
         setLoading(true);
@@ -53,6 +53,16 @@ const Visitor = () => {
         return 'black';
     },[]);
 
+    const handlePageChange = (newPage) => {
+        setPage(newPage);
+    };
+
+    const handleSizeChange = (e) =>{
+        setSize(Number(e.target.value));
+        setPage(0);
+    };
+
+
   return (
     <div className='main-user'>
         {loading && <Loading/>}
@@ -63,7 +73,7 @@ const Visitor = () => {
                     <div className="page-filter">
                         <label>
                             Entries per page: 
-                            <select>
+                            <select value={size} onChange={handleSizeChange}>
                                 <option value={10}>10</option>
                                 <option value={25}>25</option>
                                 <option value={50}>50</option>
@@ -113,14 +123,13 @@ const Visitor = () => {
                     </table>
                 </div>
                 <div className="pagination">
-                    <button className='prev-btn'>Previous</button>
-                    <p>Page 1 of 1</p>
-                    <button className='next-btn'>Next</button>
+                    <button className='prev-btn' onClick={() => handlePageChange(page-1)} disabled={page < 1}>Previous</button>
+                    <p>Page {page+1} of {totalPages}</p>
+                    <button className='next-btn' onClick={() => handlePageChange(page+1)} disabled={page+1 === totalPages}>Next</button>
                 </div>
             </div>
         </div>
         {addForm && <AddVisitor onClose={() => toggleForm(setAddForm, false)}/>}
-        {/* {updateForm && <UpdateVisitor onClose={() => toggleForm(setUpdateForm, false)}/>} */}
     </div>
   )
 }

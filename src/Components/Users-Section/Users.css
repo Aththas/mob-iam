@@ -199,6 +199,12 @@ button{
     opacity: 0.6;
 }
 
+.prev-btn:disabled,.next-btn:disabled {
+    background-color: grey !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
 /* table ends */
 
 /* pagination starts */
