@@ -3,7 +3,7 @@ import './Users.css';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
 import AddVisitor from './Add-User/AddVisitor';
-import { getMyVisitorRequests } from '../../APIs/visitorRequestApi';
+import { getMyVisitorRequests, searchMyVisitorRequestsByKeyword } from '../../APIs/visitorRequestApi';
 import toastr from '../toastr-config/ToastrConfig';
 import Loading from '../Loading-Spinner/Loading';
 
@@ -17,17 +17,26 @@ const Visitor = () => {
     const [visitorRequestList, setVisitorRequestList] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [search, setSearch] = useState('');
+    const [searchOn, setSearchOn] = useState(false);
+    const [searchCount, setSearchCount] = useState(0);
 
     const fetchMyVisitorRequests = useCallback(async () =>{
         setLoading(true);
         try{
-            const response = await getMyVisitorRequests(page, size, sortBy, ascending);
+            let response;
+            if(searchOn){
+                response = await searchMyVisitorRequestsByKeyword(page, size, sortBy, ascending, search);
+            }else{
+                response = await getMyVisitorRequests(page, size, sortBy, ascending);
+            }
             
             if(response.data.success){
                 setVisitorRequestList(response.data.data);
                 setTotalPages(Math.ceil(response.data.message/size));
             }else{
                 toastr.error(response.data.message);
+                setVisitorRequestList([]);
             }
         }catch(error){
             console.log(error);
@@ -36,7 +45,7 @@ const Visitor = () => {
             setLoading(false);
         }
 
-    },[page, size, sortBy, ascending]);
+    },[page, size, sortBy, ascending, searchOn, searchCount]);
 
     useEffect(()=>{
         fetchMyVisitorRequests();
@@ -62,6 +71,18 @@ const Visitor = () => {
         setPage(0);
     };
 
+    const handleSearch = () => {
+        if(search === '' || search === null){
+            setSearchOn(false);
+        }else{
+            setSearchOn(true);
+            setSearchCount((count) => count+1);
+            console.log(searchCount);
+            
+        }
+        setPage(0);
+    };
+
 
   return (
     <div className='main-user'>
@@ -83,8 +104,11 @@ const Visitor = () => {
                         </label>
                     </div>
                     <div className="search">
-                        <input className='search-input' type='text' placeholder='search...' id='search' name='search' />
-                        <button className='search-btn'>Search</button>
+                        <input className='search-input' type='text' placeholder='search...' id='search' name='search'
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                        <button className='search-btn' onClick={handleSearch}>Search</button>
                     </div>
                     <button className='add-btn' onClick={() => toggleForm(setAddForm, true)}>+</button>
                 </div>
@@ -104,8 +128,11 @@ const Visitor = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {visitorRequestList.map((visitorRequest,index) => (
+                            
+                            {visitorRequestList.length > 0 ?(
+                                visitorRequestList.map((visitorRequest,index) => (
                                 <tr key={index}>
+                                    
                                     <td>{index + 1 + page * size}</td>
                                     <td>{visitorRequest.visitor.verificationId}</td>
                                     <td>{visitorRequest.visitor.name}</td>
@@ -118,7 +145,13 @@ const Visitor = () => {
                                         {visitorRequest.permission.toUpperCase()}
                                     </td>
                                 </tr>
-                            ))}
+                                ))
+                                ):(
+                                    <tr>
+                                        <td colSpan="9" style={{textAlign:'center'}}> No Details Found</td>
+                                    </tr>
+                                )
+                            }
                         </tbody>
                     </table>
                 </div>
