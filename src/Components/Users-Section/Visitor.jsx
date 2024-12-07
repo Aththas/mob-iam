@@ -11,8 +11,6 @@ const Visitor = () => {
     const [addForm, setAddForm] = useState(false);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
-    // const [sortBy, setSortBy] = useState('id');
-    // const [ascending, setAscending] = useState(false);
     const sortBy = 'id'; const ascending = false;
     const [visitorRequestList, setVisitorRequestList] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
@@ -24,23 +22,19 @@ const Visitor = () => {
     const fetchMyVisitorRequests = useCallback(async () =>{
         setLoading(true);
         try{
-            let response;
-            if(searchOn){
-                response = await searchMyVisitorRequestsByKeyword(page, size, sortBy, ascending, search);
-            }else{
-                response = await getMyVisitorRequests(page, size, sortBy, ascending);
-            }
+            const response = searchOn
+                ? await searchMyVisitorRequestsByKeyword(page, size, sortBy, ascending, search)
+                : await getMyVisitorRequests(page, size, sortBy, ascending);
             
             if(response.data.success){
                 setVisitorRequestList(response.data.data);
                 setTotalPages(Math.ceil(response.data.message/size));
             }else{
-                toastr.error(response.data.message);
                 setVisitorRequestList([]);
             }
         }catch(error){
             console.log(error);
-            toastr.error(error.response.data.message || "Network Error");
+            toastr.error(error.response?.data?.message || "Network Error");
         }finally{
             setLoading(false);
         }
@@ -148,7 +142,7 @@ const Visitor = () => {
                                 ))
                                 ):(
                                     <tr>
-                                        <td colSpan="9" style={{textAlign:'center'}}> No Details Found</td>
+                                        <td colSpan="9" style={{textAlign:'center', color:'darkgray'}}> No Details Found</td>
                                     </tr>
                                 )
                             }
