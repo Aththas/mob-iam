@@ -126,7 +126,6 @@ const Visitor = () => {
                             {visitorRequestList.length > 0 ?(
                                 visitorRequestList.map((visitorRequest,index) => (
                                 <tr key={index}>
-                                    
                                     <td>{index + 1 + page * size}</td>
                                     <td>{visitorRequest.visitor.verificationId}</td>
                                     <td>{visitorRequest.visitor.name}</td>

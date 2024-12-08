@@ -8,3 +8,6 @@ export const addVisitorRequest = (data) =>
 
 export const searchMyVisitorRequestsByKeyword = (page, size, sortBy, ascending, keyword) => 
     axiosInstance.get('/visitor/searchVisitorEntryRequestByUser', {params:  {page, size, sortBy, ascending, keyword}});
+
+export const getApprovedVisitorRequests = (page, size, sortBy, ascending) => 
+    axiosInstance.get('/visitor/viewAcceptVisitorEntryRequest', {params:  {page, size, sortBy, ascending}});
