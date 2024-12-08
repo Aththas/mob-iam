@@ -27,3 +27,6 @@ export const searchPendingVisitorRequests = (page, size, sortBy, ascending, keyw
 
 export const getNotPendingVisitorRequests = (page, size, sortBy, ascending) =>
     axiosInstance.get('/visitor/viewNotPendingVisitorEntryRequest', {params: {page, size, sortBy, ascending}});
+
+export const searchNotPendingVisitorRequests = (page, size, sortBy, ascending, keyword) => 
+    axiosInstance.get('/visitor/searchNotPendingVisitorEntryRequest', {params: {page, size, sortBy, ascending, keyword}});

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faHistory, faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
 import toastr from '../toastr-config/ToastrConfig';
-import { getNotPendingVisitorRequests, getPendingVisitorRequests, searchPendingVisitorRequests } from '../../APIs/visitorRequestApi';
+import { getNotPendingVisitorRequests, getPendingVisitorRequests, searchNotPendingVisitorRequests, searchPendingVisitorRequests } from '../../APIs/visitorRequestApi';
 import Loading from '../Loading-Spinner/Loading';
 
 const SecurityApprovalVisitor = () => {
@@ -25,7 +25,9 @@ const SecurityApprovalVisitor = () => {
         try{
             let response;
             if(isHistory){
-                response = await getNotPendingVisitorRequests(page, size, sortBy, ascending);
+                response = searchOn
+                    ? await searchNotPendingVisitorRequests(page, size, sortBy, ascending, search)
+                    : await getNotPendingVisitorRequests(page, size, sortBy, ascending);
             }else{
                 response = searchOn
                     ? await searchPendingVisitorRequests(page, size, sortBy, ascending, search)
