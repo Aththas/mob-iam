@@ -31,6 +31,7 @@ const Visitor = () => {
                 setTotalPages(Math.ceil(response.data.message/size));
             }else{
                 setVisitorRequestList([]);
+                setTotalPages(1);
             }
         }catch(error){
             console.log(error);
@@ -71,8 +72,6 @@ const Visitor = () => {
         }else{
             setSearchOn(true);
             setSearchCount((count) => count+1);
-            console.log(searchCount);
-            
         }
         setPage(0);
     };

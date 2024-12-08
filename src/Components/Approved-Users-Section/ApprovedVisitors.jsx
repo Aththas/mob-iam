@@ -3,7 +3,7 @@ import './ApprovedUsers.css';
 import { faUserCheck } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
 import toastr from '../toastr-config/ToastrConfig';
-import { getApprovedVisitorRequests } from '../../APIs/visitorRequestApi';
+import { getApprovedVisitorRequests, searchApprovedVisitorRequests } from '../../APIs/visitorRequestApi';
 import Loading from '../Loading-Spinner/Loading';
 
 const ApprovedVisitors = () => {
@@ -15,17 +15,22 @@ const ApprovedVisitors = () => {
     const [visitorRequestList, setVisitorRequestList] = useState([]);
     const [search, setSearch] = useState('');
     const [searchOn, setSearchOn] = useState(false);
+    const [searchCount, setSearchCount] = useState(false);
     const [loading, setLoading] = useState(false);
 
     const fetchApprovedVisitorRequests = useCallback( async () => {
         setLoading(true);
         try{
-            const response = await getApprovedVisitorRequests(page, size, sortBy, ascending);
+            const response = searchOn
+                ? await searchApprovedVisitorRequests(page, size, sortBy, ascending, search)
+                : await getApprovedVisitorRequests(page, size, sortBy, ascending);
+
             if(response.data.success){
                 setVisitorRequestList(response.data.data);
                 setTotalPages(Math.ceil(response.data.message/size));
             }else{
                 setVisitorRequestList([]);
+                setTotalPages(1);
             }
         }catch(error){
             console.log(error);
@@ -33,7 +38,7 @@ const ApprovedVisitors = () => {
         }finally{
             setLoading(false);
         }
-    },[page, size, sortBy, ascending]);
+    },[page, size, sortBy, ascending, searchOn, searchCount]);
 
     useEffect(() => {
         fetchApprovedVisitorRequests();
@@ -53,7 +58,9 @@ const ApprovedVisitors = () => {
             setSearchOn(false);
         }else{
             setSearchOn(true);
+            setSearchCount((count) => count+1);
         }
+        setPage(0);
     }; 
 
 return (
