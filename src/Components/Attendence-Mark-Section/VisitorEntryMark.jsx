@@ -5,6 +5,7 @@ import MainHeading from '../Main-Heading/MainHeading';
 import Loading from '../Loading-Spinner/Loading';
 import toastr from '../toastr-config/ToastrConfig';
 import { getVisitorEntryDetailsByNic } from '../../APIs/visitorRequestApi';
+import { markInTime, markOutTime } from '../../APIs/visitorEntryApi';
 
 const VisitorEntryMark = () => {
 
@@ -17,6 +18,7 @@ const VisitorEntryMark = () => {
     const [loading, setLoading] = useState(false);
 
     const fetchEntryDetails = async () => {
+        resetFields();
         setLoading(true);
         try{
             const response = await getVisitorEntryDetailsByNic(verificationId);
@@ -48,6 +50,31 @@ const VisitorEntryMark = () => {
         setOutTime(''); 
         setVehicle(''); 
         setPass('');
+    };
+
+    const recordEntry = async (entryType, visitorEntryRequestId) => {
+        setLoading(true);
+        const data = entryType === "in"
+            ? { visitorEntryRequestId: visitorEntryRequestId, passNo: pass, vehicleNo: vehicle }
+            : { visitorEntryRequestId};
+
+        try{
+            const response = entryType === "in" ? await markInTime(data) : await markOutTime(data);
+
+            if(response.data.success){
+                toastr.success(response.data.message);
+                fetchEntryDetails();
+            }else{
+                console.log(response);
+                toastr.error(response.data.message);
+            }
+
+        }catch(error){
+            console.log(error);
+            toastr.error(error.response?.data?.message || "Network Error")
+        }finally{
+            setLoading(false);
+        }
     };
     
 
@@ -160,6 +187,7 @@ return (
                             type="button" 
                             className={`form-submit-btn ${inTime !== null && 'disabled'}`}
                             disabled={inTime !== null}
+                            onClick={() => recordEntry("in", visitorRequestDetails.id)}
                         >
                             Mark IN
                         </button>
@@ -169,6 +197,7 @@ return (
                             type="button" 
                             className={`form-submit-btn ${outTime !== null && 'disabled'}`}
                             disabled={outTime !== null || inTime === null}
+                            onClick={() => recordEntry("out", visitorRequestDetails.id)}
                         >
                             Mark OUT
                         </button>
