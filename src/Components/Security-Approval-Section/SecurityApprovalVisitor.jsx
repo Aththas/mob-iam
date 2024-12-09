@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faHistory, faEnvelopeOpenText } from '@fortawesome/free-solid-svg-icons';
 import MainHeading from '../Main-Heading/MainHeading';
 import toastr from '../toastr-config/ToastrConfig';
-import { getNotPendingVisitorRequests, getPendingVisitorRequests, searchNotPendingVisitorRequests, searchPendingVisitorRequests } from '../../APIs/visitorRequestApi';
+import { acceptVisitorEntryRequest, getNotPendingVisitorRequests, getPendingVisitorRequests, rejectVisitorEntryRequest, searchNotPendingVisitorRequests, searchPendingVisitorRequests } from '../../APIs/visitorRequestApi';
 import Loading from '../Loading-Spinner/Loading';
 
 const SecurityApprovalVisitor = () => {
@@ -84,6 +84,29 @@ const SecurityApprovalVisitor = () => {
         setPage(0);
     }; 
 
+    const securityApproval = async (approved, id) => {
+        console.log(approved, id);
+        
+        setLoading(true);
+        try{
+            const response = approved
+                ? await acceptVisitorEntryRequest(id)
+                : await rejectVisitorEntryRequest(id);
+            if(response.data.success){
+                toastr.success(response.data.message);
+                fetchVisitorRequestDetails();
+            }else{
+                console.log(response);
+                toastr.error(response.data.message);
+            }
+        }catch(error){
+            console.log(error);
+            toastr.error(error.response?.data?.message || "Network Error");
+        }finally{
+            setLoading(false);
+        }
+    };
+
   return (
     <div className='main-user'>
         {loading && <Loading/>}
@@ -152,9 +175,14 @@ const SecurityApprovalVisitor = () => {
                                             {visitorRequest.permission.toUpperCase()}
                                         </td>
                                     ) : (
-                                        <td>
-                                            <button className="accept-btn">ACCEPT</button>
-                                            <button className="reject-btn">REJECT</button>
+                                        <td>{console.log("visitor:", visitorRequest.id)
+                                        }
+                                            <button className="accept-btn" onClick={() => securityApproval(true, visitorRequest.id)}>
+                                                ACCEPT
+                                            </button>
+                                            <button className="reject-btn" onClick={() => securityApproval(false, visitorRequest.id)}>
+                                                REJECT
+                                            </button>
                                         </td>
                                     )} 
                                 </tr>
