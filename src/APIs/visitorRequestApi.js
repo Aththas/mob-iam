@@ -42,3 +42,7 @@ export const acceptVisitorEntryRequest = (id) =>
 //Security - to reject the requests
 export const rejectVisitorEntryRequest = (id) =>
     axiosInstance.post('/visitor/rejectVisitorRequestPermission', null, {params: {id}});
+
+//Security - get Entry details by NIC
+export const getVisitorEntryDetailsByNic = (nic) =>
+    axiosInstance.get('/visitor/viewVisitorEntryByNic', {params: {nic}});

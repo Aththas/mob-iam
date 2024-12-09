@@ -86,6 +86,10 @@ button{
     width: 100%;
 }
 
+.input:disabled{
+    cursor: not-allowed;
+}
+
 .form-style form .row .input-group .form-submit-btn:disabled {
     background-color: grey;
     cursor: not-allowed;
