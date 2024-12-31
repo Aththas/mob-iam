@@ -39,51 +39,31 @@ return (
                     <div className="row">
                         <div className="input-group">
                             <input type="text" name="text" className="input" disabled value={user.id || 'Intern ID'}/>
-                            <label className="label">Intern ID</label>
+                            <label className="label">Name</label>
                         </div>
                         <div className="input-group">
                             <input type="text" name="text" className="input" disabled value={user.nic || 'NIC'}/>
-                            <label className="label">NIC</label>
+                            <label className="label">Designation</label>
                         </div>
                   </div>
                   <div className="row">
                         <div className="input-group">
                             <input type="text" name="text" className="input" disabled value={user.last_name || 'First Name'}/>
-                            <label className="label">First Name</label>
+                            <label className="label">Department</label>
                         </div>
                         <div className="input-group">
                             <input type="text" name="text" className="input" disabled value={user.first_name || 'Last Name'}/>
-                            <label className="label">Last Name</label>
-                        </div>
-                  </div>
-                  <div className="row">
-                        <div className="input-group">
-                            <input type="text" name="text" className="input" disabled value={user.email || 'Email'}/>
-                            <label className="label">Email</label>
-                        </div>
-                        <div className="input-group">
-                            <input type="text" name="text" className="input" disabled value={user.department || 'Department'}/>
-                            <label className="label">Department</label>
-                        </div>
-                  </div>
-                  <div className="row">
-                        <div className="input-group">
-                            <input type="text" name="text" className="input" disabled value={user.start || 'Start Date'}/>
-                            <label className="label">Start Date</label>
-                        </div>
-                        <div className="input-group">
-                            <input type="text" name="text" className="input" disabled value={user.end || 'End Date'}/>
-                            <label className="label">End Date</label>
+                            <label className="label">Manager</label>
                         </div>
                   </div>
                   <div className="row">
                         <div className="input-group">
                             <input type="text" name="text" className="input" disabled value={user.requester || 'Requester'}/>
-                            <label className="label">Requester</label>
+                            <label className="label">Vehicle No</label>
                         </div>
                         <div className="input-group">
                             <input type="text" name="text" className="input" disabled value={user.approver || 'Approver'}/>
-                            <label className="label">Approver</label>
+                            <label className="label">Pass No</label>
                         </div>
                   </div>
                   <div className="row">

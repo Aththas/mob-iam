@@ -10,7 +10,7 @@ import Loading from '../Loading-Spinner/Loading';
 const SecurityApprovalVisitor = () => {
 
     const [isHistory, setHistory] = useState(false);//true means history, it means alreay reacted ones, so notPending ones...
-    const sortBy = 'id'; const ascending = true;
+    const sortBy = 'id'; const ascending = false;
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
     const [totalPages, setTotalPages] = useState(1);

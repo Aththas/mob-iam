@@ -20,7 +20,7 @@ const SideBar = ({ title }) => {
             <Link to="/attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p style={{marginLeft: '1.5vw'}}>Entries - (S)</p>
+                <p style={{marginLeft: '1.5vw'}}>Entries</p>
               </div>
             </Link>       
           </li>
@@ -28,11 +28,11 @@ const SideBar = ({ title }) => {
             <Link to="/mark-attendence">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p style={{marginLeft: '1.5vw'}}>Mark Entry - (S)</p>
+                <p style={{marginLeft: '1.5vw'}}>Mark Entry</p>
               </div>
             </Link>       
           </li>
-          <li className={title===3 ? 'active' : ''}>
+          {/* <li className={title===3 ? 'active' : ''}>
             <Link to="/user">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUser} className='icon'/>
@@ -63,7 +63,7 @@ const SideBar = ({ title }) => {
                 <p style={{marginLeft: '1.2vw'}}>Approved Requests - (S)</p>
               </div>
             </Link> 
-          </li>
+          </li> */}
         </ul>
 
         <ul className='nav-list'>
@@ -76,7 +76,7 @@ const SideBar = ({ title }) => {
             <Link to="/attendence-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p style={{marginLeft: '1.5vw'}}>Entries - (S)</p>
+                <p style={{marginLeft: '1.5vw'}}>Entries</p>
               </div>
             </Link>       
           </li>
@@ -84,7 +84,7 @@ const SideBar = ({ title }) => {
             <Link to="/mark-attendence-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faClipboardList} className='icon' />
-                <p style={{marginLeft: '1.5vw'}}>Mark Entry - (S)</p>
+                <p style={{marginLeft: '1.5vw'}}>Mark Entry</p>
               </div>
             </Link>       
           </li>
@@ -92,7 +92,7 @@ const SideBar = ({ title }) => {
             <Link to="/visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUser} className='icon'/>
-                <p style={{marginLeft: '1.3vw'}}>Entry Request - (All)</p>
+                <p style={{marginLeft: '1.3vw'}}>Entry Request</p>
               </div>
             </Link> 
           </li>
@@ -100,7 +100,7 @@ const SideBar = ({ title }) => {
             <Link to="/security-approval-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faPen} className='icon'/>
-                <p style={{marginLeft: '1.2vw'}}>Security Approval - (S)</p>
+                <p style={{marginLeft: '1.2vw'}}>Security Approval</p>
               </div>
             </Link> 
           </li>
@@ -108,7 +108,7 @@ const SideBar = ({ title }) => {
             <Link to="/approved-visitor">
               <div className='list-item'>
                 <FontAwesomeIcon icon={faUserCheck} className='icon'/>
-                <p style={{marginLeft: '1.2vw'}}>Approved Requests - (S)</p>
+                <p style={{marginLeft: '1.2vw'}}>Approved Requests</p>
               </div>
             </Link> 
           </li>
